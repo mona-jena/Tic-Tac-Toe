@@ -1,0 +1,31 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=1662904e_002D16a9_002D452c_002Dbaa7_002D01199cecb141/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="CheckIfGetGameStateReturnsVerticalWin" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::E2797761-F9A3-4970-BE9E-3512C7F682C9::.NETCoreApp,Version=v3.1::TicTacToeTests.WinDeciderTests&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=29c81534_002D1071_002D42aa_002D99d4_002Dc4b4d5a4009e/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="WinDeciderTests #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::E2797761-F9A3-4970-BE9E-3512C7F682C9::.NETCoreApp,Version=v3.1::TicTacToeTests.WinDeciderTests&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=365bc14d_002D3a89_002D4c1c_002Db02d_002D24b0d565b22e/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from Solution" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;Solution /&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=4cba86ca_002Dd83d_002D4d09_002D9516_002De5f9528facf9/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GetGameStateShouldReturnCorrectGameState" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::E2797761-F9A3-4970-BE9E-3512C7F682C9::.NETCoreApp,Version=v3.1::TicTacToeTests.WinDeciderTests.CheckIfGetGameStateReturnsVerticalWin&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=4fef5aeb_002Dee3a_002D45ed_002Db48f_002Dfae9854a4444/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TakeTurnShouldTakeUserInputAndReturnTheSpecifiedCoord2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::E2797761-F9A3-4970-BE9E-3512C7F682C9::.NETCoreApp,Version=v3.1::TicTacToeTests.PlayerTests&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::E2797761-F9A3-4970-BE9E-3512C7F682C9::.NETCoreApp,Version=v3.1::TicTacToeTests.WinDeciderTests.GetGameStateShouldReturnCorrectGameState&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=8046b91d_002D609b_002D491e_002D9141_002D440342d082f6/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="WinDeciderTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::E2797761-F9A3-4970-BE9E-3512C7F682C9::.NETCoreApp,Version=v3.1::TicTacToeTests.WinDeciderTests&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::E2797761-F9A3-4970-BE9E-3512C7F682C9::.NETCoreApp,Version=v3.1::TicTacToeTests.PlayerTests&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

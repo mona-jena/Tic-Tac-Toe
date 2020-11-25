@@ -1,0 +1,9 @@
+/Users/Mona.Jena/Workspace/TicTacToe/TicTacToe/bin/Debug/netcoreapp3.1/TicTacToe.deps.json
+/Users/Mona.Jena/Workspace/TicTacToe/TicTacToe/bin/Debug/netcoreapp3.1/TicTacToe.dll
+/Users/Mona.Jena/Workspace/TicTacToe/TicTacToe/bin/Debug/netcoreapp3.1/TicTacToe.pdb
+/Users/Mona.Jena/Workspace/TicTacToe/TicTacToe/obj/Debug/netcoreapp3.1/TicTacToe.csprojAssemblyReference.cache
+/Users/Mona.Jena/Workspace/TicTacToe/TicTacToe/obj/Debug/netcoreapp3.1/TicTacToe.AssemblyInfoInputs.cache
+/Users/Mona.Jena/Workspace/TicTacToe/TicTacToe/obj/Debug/netcoreapp3.1/TicTacToe.AssemblyInfo.cs
+/Users/Mona.Jena/Workspace/TicTacToe/TicTacToe/obj/Debug/netcoreapp3.1/TicTacToe.csproj.CoreCompileInputs.cache
+/Users/Mona.Jena/Workspace/TicTacToe/TicTacToe/obj/Debug/netcoreapp3.1/TicTacToe.dll
+/Users/Mona.Jena/Workspace/TicTacToe/TicTacToe/obj/Debug/netcoreapp3.1/TicTacToe.pdb

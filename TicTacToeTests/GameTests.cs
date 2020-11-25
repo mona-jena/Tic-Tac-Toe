@@ -1,0 +1,30 @@
+using System;
+using TicTacToe;
+using Xunit;
+
+namespace TicTacToeTests
+{
+    public class GameTests
+    {
+        [Fact]
+        public void AcceptanceTest()
+        {
+            var readerWriter1 = new TestReaderWriter(new string[]{"1,1", "1,2", "1,3"});
+            var readerWriter2 = new TestReaderWriter(new string[]{"2,0", "2,1"});
+            var player1 = new Player('X', readerWriter1);
+            var player2 = new Player('O', readerWriter2);
+            Game game = new Game(player1, player2);
+            while (game.GetState() == GameState.InProgress)
+            {
+                
+                var board = game.PrintBoard();
+                
+            }
+
+            Assert.Equal(GameState.HorizontalWin, game.GetState());
+            Assert.Equal(player1, game.GetCurrentPlayer());
+        }
+        
+        
+    }
+}
