@@ -4,7 +4,166 @@
     <projectFile>TicTacToe/TicTacToe.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b72ce910-d5ea-4e1d-b0f7-fae614eb73d8" name="Default Changelist" comment="" />
+    <list default="true" id="b72ce910-d5ea-4e1d-b0f7-fae614eb73d8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.TicTacToe/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.TicTacToe/.idea/contentModel.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.TicTacToe/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.TicTacToe/.idea/indexLayout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.TicTacToe/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.TicTacToe/.idea/projectSettingsUpdater.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.TicTacToe/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.TicTacToe/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.TicTacToe/riderModule.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToe.sln" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToe.sln.DotSettings.user" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToe/Board.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToe/Coordinate.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToe/DiagonalWin.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToe/Game.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToe/GameState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToe/HorizontalWin.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToe/IReaderWriter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToe/IWinCondition.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToe/IWinDecider.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToe/Player.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToe/TicTacToe.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToe/VerticalWin.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToe/WinDecider.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToe/bin/Debug/netcoreapp3.1/TicTacToe.deps.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToe/bin/Debug/netcoreapp3.1/TicTacToe.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToe/bin/Debug/netcoreapp3.1/TicTacToe.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToe/obj/Debug/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToe/obj/Debug/netcoreapp3.1/TicTacToe.AssemblyInfo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToe/obj/Debug/netcoreapp3.1/TicTacToe.AssemblyInfoInputs.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToe/obj/Debug/netcoreapp3.1/TicTacToe.assets.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToe/obj/Debug/netcoreapp3.1/TicTacToe.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToe/obj/Debug/netcoreapp3.1/TicTacToe.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToe/obj/Debug/netcoreapp3.1/TicTacToe.csprojAssemblyReference.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToe/obj/Debug/netcoreapp3.1/TicTacToe.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToe/obj/Debug/netcoreapp3.1/TicTacToe.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToe/obj/TicTacToe.csproj.nuget.dgspec.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToe/obj/TicTacToe.csproj.nuget.g.props" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToe/obj/TicTacToe.csproj.nuget.g.targets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToe/obj/project.assets.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToe/obj/project.nuget.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToe/obj/project.packagespec.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToe/obj/rider.project.restore.info" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/BoardTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/GameTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/PlayerTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/TestReaderWriter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/TicTacToeTests.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/WinDeciderTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/Microsoft.TestPlatform.CommunicationUtilities.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/Microsoft.TestPlatform.CoreUtilities.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/Microsoft.TestPlatform.CrossPlatEngine.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/Microsoft.TestPlatform.PlatformAbstractions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/Microsoft.TestPlatform.Utilities.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/Microsoft.VisualStudio.CodeCoverage.Shim.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/Microsoft.VisualStudio.TestPlatform.Common.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/Microsoft.VisualStudio.TestPlatform.ObjectModel.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/Newtonsoft.Json.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/NuGet.Frameworks.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/TicTacToe.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/TicTacToe.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/TicTacToeTests.deps.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/TicTacToeTests.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/TicTacToeTests.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/TicTacToeTests.runtimeconfig.dev.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/TicTacToeTests.runtimeconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/cs/Microsoft.TestPlatform.CommunicationUtilities.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/cs/Microsoft.TestPlatform.CoreUtilities.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/cs/Microsoft.TestPlatform.CrossPlatEngine.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/cs/Microsoft.VisualStudio.TestPlatform.Common.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/cs/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/de/Microsoft.TestPlatform.CommunicationUtilities.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/de/Microsoft.TestPlatform.CoreUtilities.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/de/Microsoft.TestPlatform.CrossPlatEngine.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/de/Microsoft.VisualStudio.TestPlatform.Common.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/de/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/es/Microsoft.TestPlatform.CommunicationUtilities.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/es/Microsoft.TestPlatform.CoreUtilities.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/es/Microsoft.TestPlatform.CrossPlatEngine.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/es/Microsoft.VisualStudio.TestPlatform.Common.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/es/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/fr/Microsoft.TestPlatform.CommunicationUtilities.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/fr/Microsoft.TestPlatform.CoreUtilities.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/fr/Microsoft.TestPlatform.CrossPlatEngine.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/fr/Microsoft.VisualStudio.TestPlatform.Common.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/fr/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/it/Microsoft.TestPlatform.CommunicationUtilities.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/it/Microsoft.TestPlatform.CoreUtilities.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/it/Microsoft.TestPlatform.CrossPlatEngine.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/it/Microsoft.VisualStudio.TestPlatform.Common.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/it/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/ja/Microsoft.TestPlatform.CommunicationUtilities.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/ja/Microsoft.TestPlatform.CoreUtilities.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/ja/Microsoft.TestPlatform.CrossPlatEngine.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/ja/Microsoft.VisualStudio.TestPlatform.Common.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/ja/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/ko/Microsoft.TestPlatform.CommunicationUtilities.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/ko/Microsoft.TestPlatform.CoreUtilities.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/ko/Microsoft.TestPlatform.CrossPlatEngine.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/ko/Microsoft.VisualStudio.TestPlatform.Common.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/ko/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/pl/Microsoft.TestPlatform.CommunicationUtilities.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/pl/Microsoft.TestPlatform.CoreUtilities.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/pl/Microsoft.TestPlatform.CrossPlatEngine.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/pl/Microsoft.VisualStudio.TestPlatform.Common.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/pl/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/pt-BR/Microsoft.TestPlatform.CommunicationUtilities.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/pt-BR/Microsoft.TestPlatform.CoreUtilities.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/pt-BR/Microsoft.TestPlatform.CrossPlatEngine.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/pt-BR/Microsoft.VisualStudio.TestPlatform.Common.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/pt-BR/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/ru/Microsoft.TestPlatform.CommunicationUtilities.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/ru/Microsoft.TestPlatform.CoreUtilities.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/ru/Microsoft.TestPlatform.CrossPlatEngine.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/ru/Microsoft.VisualStudio.TestPlatform.Common.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/ru/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/testhost.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/tr/Microsoft.TestPlatform.CommunicationUtilities.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/tr/Microsoft.TestPlatform.CoreUtilities.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/tr/Microsoft.TestPlatform.CrossPlatEngine.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/tr/Microsoft.VisualStudio.TestPlatform.Common.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/tr/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/xunit.abstractions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/xunit.assert.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/xunit.core.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/xunit.execution.dotnet.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/xunit.runner.reporters.netcoreapp10.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/xunit.runner.utility.netcoreapp10.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/xunit.runner.visualstudio.dotnetcore.testadapter.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/zh-Hans/Microsoft.TestPlatform.CommunicationUtilities.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/zh-Hans/Microsoft.TestPlatform.CoreUtilities.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/zh-Hans/Microsoft.TestPlatform.CrossPlatEngine.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/zh-Hans/Microsoft.VisualStudio.TestPlatform.Common.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/zh-Hans/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/zh-Hant/Microsoft.TestPlatform.CommunicationUtilities.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/zh-Hant/Microsoft.TestPlatform.CoreUtilities.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/zh-Hant/Microsoft.TestPlatform.CrossPlatEngine.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/zh-Hant/Microsoft.VisualStudio.TestPlatform.Common.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/bin/Debug/netcoreapp3.1/zh-Hant/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/obj/Debug/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/obj/Debug/netcoreapp3.1/TicTacToeTests.AssemblyInfo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/obj/Debug/netcoreapp3.1/TicTacToeTests.AssemblyInfoInputs.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/obj/Debug/netcoreapp3.1/TicTacToeTests.assets.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/obj/Debug/netcoreapp3.1/TicTacToeTests.csproj.CopyComplete" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/obj/Debug/netcoreapp3.1/TicTacToeTests.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/obj/Debug/netcoreapp3.1/TicTacToeTests.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/obj/Debug/netcoreapp3.1/TicTacToeTests.csprojAssemblyReference.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/obj/Debug/netcoreapp3.1/TicTacToeTests.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/obj/Debug/netcoreapp3.1/TicTacToeTests.genruntimeconfig.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/obj/Debug/netcoreapp3.1/TicTacToeTests.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/obj/TicTacToeTests.csproj.nuget.dgspec.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/obj/TicTacToeTests.csproj.nuget.g.props" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/obj/TicTacToeTests.csproj.nuget.g.targets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/obj/project.assets.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/obj/project.nuget.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/obj/project.packagespec.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeTests/obj/rider.project.restore.info" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -93,7 +252,7 @@
       <workItem from="1605667064995" duration="28756000" />
       <workItem from="1606079166891" duration="57847000" />
       <workItem from="1606346847879" duration="102000" />
-      <workItem from="1606346954960" duration="130000" />
+      <workItem from="1606346954960" duration="473000" />
     </task>
     <servers />
   </component>
