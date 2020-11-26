@@ -17,10 +17,4 @@
       <ProjectReference Include="..\TicTacToe\TicTacToe.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Content Include="..\..\..\.nuget\packages\microsoft.net.test.sdk\16.5.0\build\netcoreapp2.1\.gitignore">
-        <Link>netcoreapp2.1\.gitignore</Link>
-      </Content>
-    </ItemGroup>
-
 </Project>
