@@ -54,7 +54,7 @@ namespace TicTacToeTests
 
             var winDecider = new WinDecider();
             var actual = winDecider.GetGameState(board);
-            var expected = GameState.VerticalWin;
+            var expected = GameState.DiagonalWin;
             
             Assert.Equal(expected, actual);
         }
