@@ -19,6 +19,7 @@ namespace TicTacToe
             _winConditions.Add(new HorizontalWin());
             _winConditions.Add(new VerticalWin());
             _winConditions.Add(new DiagonalWin());
+            _winConditions.Add(new Draw());
         }
 
 
@@ -36,4 +37,6 @@ namespace TicTacToe
             return GameState.InProgress;
         }
     }
+
+    
 }
