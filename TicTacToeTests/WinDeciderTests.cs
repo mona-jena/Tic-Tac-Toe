@@ -53,6 +53,7 @@ namespace TicTacToeTests
             board.UpdateSquare(coord3, 'X');
 
             var winDecider = new WinDecider();
+            //create Game object --> call GetGameState();
             var actual = winDecider.GetGameState(board);
             var expected = GameState.DiagonalWin;
             

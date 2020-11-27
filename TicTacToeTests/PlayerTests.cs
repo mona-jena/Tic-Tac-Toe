@@ -12,13 +12,13 @@ namespace TicTacToeTests
             var player = new Player('X', readerWriter);
             var userSpecifiedCoord = player.TakeTurn();
             userSpecifiedCoord = player.TakeTurn();
-            Coordinate expected = new Coordinate()
+            Coordinate expectedCoord = new Coordinate()
             {
                 X = 1,
                 Y = 2
             };
 
-            Assert.Equal(expected, userSpecifiedCoord);
+            Assert.Equal(expectedCoord, userSpecifiedCoord);
         }
         
         [Fact]

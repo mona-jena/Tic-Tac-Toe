@@ -14,9 +14,10 @@ namespace TicTacToeTests
             var player1 = new Player('X', readerWriter1);
             var player2 = new Player('O', readerWriter2);
             Game game = new Game(player1, player2);
+            //Game game = new Game(player1, player2, size);
             while (game.GetState() == GameState.InProgress)
             {
-                
+                game.DoNextTurn();
                 var board = game.PrintBoard();
                 
             }
@@ -25,6 +26,8 @@ namespace TicTacToeTests
             Assert.Equal(player1, game.GetCurrentPlayer());
         }
         
+        //player 2 test
         
+        // draw test
     }
 }

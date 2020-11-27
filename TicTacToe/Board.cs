@@ -4,13 +4,14 @@ namespace TicTacToe
 {
     public class Board
     {
-        private readonly char[][] _board = new char[3][];
+        private readonly char[][] _board;
 
         public int Size { get;}
 
         public Board(int size)
         {
             Size = size;
+            _board = new char[size][];
             for (var i = 0; i < size; i++)
             {
                 _board[i] = new char[] {'.', '.', '.'};
@@ -27,10 +28,5 @@ namespace TicTacToe
             return _board[coord.X][coord.Y];
         }
         
-        public string PrintBoard()
-        {
-            //need to implement 
-            return _board.ToString();
-        }
     }
 }
