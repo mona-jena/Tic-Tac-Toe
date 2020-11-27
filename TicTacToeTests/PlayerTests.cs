@@ -66,19 +66,6 @@ namespace TicTacToeTests
             Assert.Equal(expected, userSpecifiedCoord);
         }
         
-        /*[Fact]
-        public void TakeTurnShouldPromptUserAboutOutOfBoundsCoordinate()
-        {
-            var readerWriter = new TestReaderWriter(new string[]{"5,4", "1,2", "2,2"});
-            var player = new Player('X', readerWriter);
-            var userSpecifiedCoord = player.TakeTurn();
-            Coordinate expected = new Coordinate()
-            {
-                X = 1,
-                Y = 2
-            };
-
-            Assert.Equal(expected, userSpecifiedCoord);
-        }*/
+        
     }
 }

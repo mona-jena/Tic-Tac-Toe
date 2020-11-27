@@ -4,11 +4,11 @@ namespace TicTacToe
 {
     public class Game
     {
-        private Board _board;
+        private readonly Board _board;
 
-        public Game(Player player1, Player player2)
+        public Game(Player player1, Player player2, int size)
         {
-            _board = new Board(3);
+            _board = new Board(size);
         }
 
         public GameState GetState()

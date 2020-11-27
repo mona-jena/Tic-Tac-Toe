@@ -13,13 +13,11 @@ namespace TicTacToeTests
             var readerWriter2 = new TestReaderWriter(new string[]{"2,0", "2,1"});
             var player1 = new Player('X', readerWriter1);
             var player2 = new Player('O', readerWriter2);
-            Game game = new Game(player1, player2);
-            //Game game = new Game(player1, player2, size);
+            var size = 3;
+            Game game = new Game(player1, player2, size);
             while (game.GetState() == GameState.InProgress)
             {
                 game.DoNextTurn();
-                var board = game.PrintBoard();
-                
             }
 
             Assert.Equal(GameState.HorizontalWin, game.GetState());

@@ -1,11 +1,19 @@
 namespace TicTacToe
 {
-    class CoordinateValidator
+    public class CoordinateValidator
     {
-        private void IsValid(Board board, Coordinate coord){
-            /*if(board.GetSquare())*/
+        public bool IsValid(Board board, Coordinate coord)
+        {
+            try
+            {
+                board.GetSquare(coord);
+            }
+            catch (System.IndexOutOfRangeException)
+            {
+                return false;
+            }
+
+            return true;
         }
     }
-    
-    
 }

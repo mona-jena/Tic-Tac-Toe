@@ -1,5 +1,3 @@
-using System;
-
 namespace TicTacToe
 {
     public class Board
@@ -14,7 +12,7 @@ namespace TicTacToe
             _board = new char[size][];
             for (var i = 0; i < size; i++)
             {
-                _board[i] = new char[] {'.', '.', '.'};
+                _board[i] = new[] {'.', '.', '.'};
             }
         }
 
