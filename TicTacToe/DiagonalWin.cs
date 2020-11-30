@@ -44,8 +44,7 @@ namespace TicTacToe
             }
             return true;
         }
-
-
+        
         private bool CheckRightDiagonal(Board board, char symbol)
         {
             for (int x = 1; x < board.Size; x++)

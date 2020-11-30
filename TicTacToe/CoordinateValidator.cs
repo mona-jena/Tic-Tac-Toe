@@ -4,15 +4,15 @@ namespace TicTacToe
     {
         public bool IsValid(Board board, Coordinate coord)
         {
-            try
+            if (coord.X >= board.Size || coord.Y >= board.Size)
             {
-                board.GetSquare(coord);
-            }
-            catch (System.IndexOutOfRangeException)
+                return false;
+            } 
+            else if (board.GetSquare(coord) != '.')
             {
                 return false;
             }
-
+            
             return true;
         }
     }

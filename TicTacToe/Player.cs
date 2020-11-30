@@ -3,9 +3,11 @@ namespace TicTacToe
     public class Player
     {
         private readonly IReaderWriter _readerWriter;
+        public char Symbol { get; }
         
         public Player(char symbol, IReaderWriter readerWriter)
         {
+            Symbol = symbol;
             _readerWriter = readerWriter;
         }
 
@@ -34,7 +36,6 @@ namespace TicTacToe
                         Y = yValue
                     };
                 }
-                
             }
         }
     }
