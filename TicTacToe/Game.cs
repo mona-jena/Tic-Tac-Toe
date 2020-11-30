@@ -28,6 +28,7 @@ namespace TicTacToe
         {
            return _board.ToString();
         }
+        
 
         public Player GetCurrentPlayer()
         {
@@ -36,19 +37,8 @@ namespace TicTacToe
         }
         
         
-        
         public GameState DoNextTurn()
         {
-            /*
-                 * Player take turn
-                 * check if valid; if not repeat loop
-                 * place on the board
-                 * check for winner - if winner exit loop
-                 * add to counter
-                 * change Player
-                 * continue loop
-            */
-            
             _turnCount++;
             var player = GetCurrentPlayer();
             while (true)
