@@ -6,7 +6,7 @@ namespace TicTacToeTests
     public class PlayerTests
     {
         [Fact]
-        public void TakeTurnShouldTakeSecondUserInputAndReturnTheSpecifiedCoord()
+        public void TakeTurnShouldTakeSecondUserInputAndReturnTheSpecifiedCoordAfterSecondTurn()
         {
             var readerWriter = new TestReaderWriter(new []{"1,1", "1,2", "1,3"});
             var player = new Player('X', readerWriter);
@@ -22,7 +22,7 @@ namespace TicTacToeTests
         }
         
         [Fact]
-        public void TakeTurnShouldTakeUserInputAndReturnTheSpecifiedCoord2()
+        public void TakeTurnShouldIgnoreUserInputThatDoesNotSpecifyXAndY()
         {
             var readerWriter = new TestReaderWriter(new []{"bb", "1,2", "aaa"});
             var player = new Player('X', readerWriter);
@@ -37,7 +37,7 @@ namespace TicTacToeTests
         }
         
         [Fact]
-        public void TakeTurnShouldTakeUserInputAndReturnTheSpecifiedCoord3()
+        public void TakeTurnShouldIgnoreUserInputIfItsNotAnInteger()
         {
             var readerWriter = new TestReaderWriter(new []{"1,bb", "1,2", "aaa"});
             var player = new Player('X', readerWriter);
@@ -52,7 +52,7 @@ namespace TicTacToeTests
         }
         
         [Fact]
-        public void TakeTurnShouldTakeUserInputAndReturnTheSpecifiedCoord4()
+        public void TakeTurnShouldIgnoreUserInputIfTwoInputsAreNotExactlyGiven()
         {
             var readerWriter = new TestReaderWriter(new []{"1,2,3", "1,2", "aaa"});
             var player = new Player('X', readerWriter);

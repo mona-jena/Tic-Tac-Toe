@@ -26,7 +26,18 @@ namespace TicTacToe
 
         public string PrintBoard()
         {
-           return _board.ToString();
+            var stringBoard = "";
+            for (int y = 0; y < _board.Size; y++)
+            {
+                for (int x = 0; x < _board.Size; x++)
+                {
+                    var coord = new Coordinate { X = x, Y = y};
+                    stringBoard += _board.GetSquare(coord) + " ";
+                }
+
+                stringBoard += "\n";
+            }
+            return stringBoard;
         }
         
 
