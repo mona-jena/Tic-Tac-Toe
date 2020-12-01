@@ -1,6 +1,5 @@
 using TicTacToe;
 using Xunit;
-using Xunit.Sdk;
 
 namespace TicTacToeTests
 {

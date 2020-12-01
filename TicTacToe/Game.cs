@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+using System;
+using TicTacToeConsoleTests;
 
 namespace TicTacToe
 {
@@ -7,7 +9,7 @@ namespace TicTacToe
         private readonly Board _board;
         private readonly Player _player1;
         private readonly Player _player2;
-        private int _turnCount = 0;
+        private int _turnCount;
 
         public Game(Player player1, Player player2, int size)
         {
@@ -15,6 +17,41 @@ namespace TicTacToe
             _player1 = player1;
             _player2 = player2;
         }
+
+        public void PLay()
+        {
+            Console.WriteLine("Welcome to Tic Tac Toe!");
+            while (true)
+            {
+                Console.WriteLine("What size board would you like to play with? ");
+                var boardSize = Console.ReadLine();
+                bool validSize = int.TryParse(boardSize, out var size);
+
+                if (!validSize)
+                {
+                    continue;
+                }
+                
+               
+                // Console.WriteLine("How many players will be playing?");
+                // var noOfPlayers = Console.ReadLine();
+                
+                Console.WriteLine("Player 1, what symbol would you like to be?");
+                var player1Symbol = Console.ReadLine();
+                
+                var player1 = new Player(char.Parse(player1Symbol), new ConsoleReaderWriter(player1Symbol));
+                Console.WriteLine("Player 2, what symbol would you like to be?");
+                var player2Symbol = Console.ReadLine();
+                var player2 = new Player(player2Symbol, new ConsoleReaderWriter());
+                Game game = new Game(player1, player2, size);
+                game.PrintBoard();
+
+                //game.ValidateBoardSize();
+
+            }
+        }
+        
+        
 
         public GameState GetState()
         {
@@ -37,6 +74,9 @@ namespace TicTacToe
 
                 stringBoard += "\n";
             }
+            
+            //CONDENSE
+
             return stringBoard;
         }
         
@@ -52,19 +92,16 @@ namespace TicTacToe
         {
             _turnCount++;
             var player = GetCurrentPlayer();
-            while (true)
-            {
-                var userCoord = player.TakeTurn();
+            var userCoord = new Coordinate();
+            var valid = false;
+            while (!valid)
+            { 
+                userCoord = player.TakeTurn();
                 var coordinateValidator = new CoordinateValidator();
-                var valid = coordinateValidator.IsValid(_board, userCoord);
-                if (!valid)
-                {
-                    continue;
-                }
-                _board.UpdateSquare(userCoord, player.Symbol);
-                
-                return GetState();
+                valid = coordinateValidator.IsValid(_board, userCoord);
             }
+            _board.UpdateSquare(userCoord, player.Symbol);
+            return GetState();
         }
 
 

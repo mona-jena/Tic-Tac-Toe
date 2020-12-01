@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Threading;
 using TicTacToe;
+using TicTacToeConsoleTests;
 
 namespace TicTacToeConsole
 {
@@ -8,32 +8,7 @@ namespace TicTacToeConsole
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to Tic Tac Toe!");
-            while (true)
-            {
-                Console.WriteLine("What size board would you like to play with? ");
-                var boardSize = Console.ReadLine();
-                bool validSize = int.TryParse(boardSize, out var size);
-
-                if (!validSize)
-                {
-                    continue;
-                }
-                
-                Board board = new Board(size);
-                // Console.WriteLine("How many players will be playing?");
-                // var noOfPlayers = Console.ReadLine();
-                
-                Console.WriteLine("Player 1, what symbol would you like to be?");
-                char player1Symbol = Console.ReadLine();
-                var player1 = new Player(player1Symbol, new ConsoleReaderWriter());
-                Console.WriteLine("Player 2, what symbol would you like to be?");
-                var player2Symbol = Console.ReadLine();
-                var player2 = new Player(player2Symbol, new ConsoleReaderWriter());
-                Game game = new Game(player1, player2, size);
-                game.PrintBoard();
-
-            }
+            
         }
     }
 }
