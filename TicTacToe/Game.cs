@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using TicTacToeConsoleTests;
 
 namespace TicTacToe
@@ -9,13 +8,20 @@ namespace TicTacToe
         private readonly Board _board;
         private readonly Player _player1;
         private readonly Player _player2;
-        private int _turnCount;
+        private Player _currentPlayer;
+        private readonly CoordinateValidator _coordinateValidator = new CoordinateValidator();
 
         public Game(Player player1, Player player2, int size)
         {
-            _board = new Board(size);
+            var validSize = CheckBoardSize(size);
+            if (validSize)
+            {
+                _board = new Board(size);
+            }
+            
             _player1 = player1;
             _player2 = player2;
+            _currentPlayer = _player1;
         }
 
         public void PLay()
@@ -23,35 +29,37 @@ namespace TicTacToe
             Console.WriteLine("Welcome to Tic Tac Toe!");
             while (true)
             {
-                Console.WriteLine("What size board would you like to play with? ");
-                var boardSize = Console.ReadLine();
-                bool validSize = int.TryParse(boardSize, out var size);
+                var console = new ConsoleReaderWriter();
+                console.Write("What size board would you like to play with? ");
 
-                if (!validSize)
-                {
-                    continue;
-                }
+                var boardSize = console.Read();
+                var validBoardSize = CheckBoardSize(boardSize);
                 
-               
                 // Console.WriteLine("How many players will be playing?");
                 // var noOfPlayers = Console.ReadLine();
                 
-                Console.WriteLine("Player 1, what symbol would you like to be?");
-                var player1Symbol = Console.ReadLine();
+                console.Write("Player 1, what symbol would you like to be?");
                 
-                var player1 = new Player(char.Parse(player1Symbol), new ConsoleReaderWriter(player1Symbol));
-                Console.WriteLine("Player 2, what symbol would you like to be?");
-                var player2Symbol = Console.ReadLine();
-                var player2 = new Player(player2Symbol, new ConsoleReaderWriter());
-                Game game = new Game(player1, player2, size);
-                game.PrintBoard();
-
-                //game.ValidateBoardSize();
-
+                var player1Symbol = console.Read();
+                
+                var player1 = new Player(char.Parse(player1Symbol), console);
+                console.Write("Player 2, what symbol would you like to be?");
+                var player2Symbol = console.Read();
+                var player2 = new Player(char.Parse(player2Symbol), console);
             }
         }
-        
-        
+
+        public bool CheckBoardSize(string boardSize)
+        {
+            var validInteger = int.TryParse(boardSize, out var size);
+            if (validInteger && size > 0)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
 
         public GameState GetState()
         {
@@ -83,24 +91,22 @@ namespace TicTacToe
 
         public Player GetCurrentPlayer()
         {
-            var currentPlayer = _turnCount % 2 == 1 ? _player1 : _player2;
-            return currentPlayer;
+            return _currentPlayer;
         }
         
         
         public GameState DoNextTurn()
         {
-            _turnCount++;
-            var player = GetCurrentPlayer();
-            var userCoord = new Coordinate();
+            _currentPlayer = _currentPlayer == _player1 ? _player2 : _player1;
+            
+            Coordinate userCoord = null;
             var valid = false;
             while (!valid)
             { 
-                userCoord = player.TakeTurn();
-                var coordinateValidator = new CoordinateValidator();
-                valid = coordinateValidator.IsValid(_board, userCoord);
+                userCoord = _currentPlayer.TakeTurn();
+                valid = _coordinateValidator.IsValid(_board, userCoord);
             }
-            _board.UpdateSquare(userCoord, player.Symbol);
+            _board.UpdateSquare(userCoord, _currentPlayer.Symbol);
             return GetState();
         }
 

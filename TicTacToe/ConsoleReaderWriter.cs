@@ -7,12 +7,13 @@ namespace TicTacToeConsoleTests
     {
         public void Write(string s)
         {
-            Console.WriteLine(s);
+            Console.Write(s);
         }
+        
 
         public string Read()
         {
-            return Console.ReadLine();
+            return Console.Read().ToString();
         }
     }
 }

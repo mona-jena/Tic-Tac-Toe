@@ -103,5 +103,23 @@ namespace TicTacToeTests
             Assert.Equal(game.PrintBoard(), expectedBoard);
         }
         
+        //ACCEPTANCE TEST FOR game.Play();
+        //test each ifValid symbol, size
+        
+        
+        [Fact]
+        public void AcceptanceTestWhenPlayerEntersBoardSize()
+        {
+            var readerWriter1 = new TestReaderWriter(new []{"0,0", "1,0", "2,0"});
+            var readerWriter2 = new TestReaderWriter(new []{"0,2", "1,2"});
+            var player1 = new Player('X', readerWriter1);
+            var player2 = new Player('O', readerWriter2);
+            var size = "3";
+            Game game = new Game(player1, player2, size);
+            
+            var ifValidBoardSize = game.CheckBoardSize(size);
+            
+            Assert.True(ifValidBoardSize);
+        }
     }
 }
