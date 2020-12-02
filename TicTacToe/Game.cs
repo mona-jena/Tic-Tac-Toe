@@ -10,7 +10,8 @@ namespace TicTacToe
         private readonly Player _player2;
         private Player _currentPlayer;
         private readonly CoordinateValidator _coordinateValidator = new CoordinateValidator();
-
+        private Coordinate _userCoord;
+        
         public Game(Player player1, Player player2, int size)
         {
             var validSize = CheckBoardSize(size);
@@ -29,24 +30,37 @@ namespace TicTacToe
             Console.WriteLine("Welcome to Tic Tac Toe!");
             while (true)
             {
-                var console = new ConsoleReaderWriter();
-                console.Write("What size board would you like to play with? ");
+                var consoleReaderWriter = new ConsoleReaderWriter();
+                consoleReaderWriter.Write("What size board would you like to play with? ");
 
-                var boardSize = console.Read();
+                var boardSize = consoleReaderWriter.Read();
                 var validBoardSize = CheckBoardSize(boardSize);
                 
                 // Console.WriteLine("How many players will be playing?");
                 // var noOfPlayers = Console.ReadLine();
                 
-                console.Write("Player 1, what symbol would you like to be?");
+                consoleReaderWriter.Write("Player 1, what symbol would you like to be?");
+                var player1Symbol = consoleReaderWriter.Read();
+                var validSymbol1 = CheckIfValidSymbol(player1Symbol);
+                var player1 = new Player(char.Parse(player1Symbol), consoleReaderWriter);
                 
-                var player1Symbol = console.Read();
+                consoleReaderWriter.Write("Player 2, what symbol would you like to be?");
+                var player2Symbol = consoleReaderWriter.Read();
+                var validSymbol2 = CheckIfValidSymbol(player2Symbol);
+                var player2 = new Player(char.Parse(player2Symbol), consoleReaderWriter);
                 
-                var player1 = new Player(char.Parse(player1Symbol), console);
-                console.Write("Player 2, what symbol would you like to be?");
-                var player2Symbol = console.Read();
-                var player2 = new Player(char.Parse(player2Symbol), console);
+                var gameRoundResult = DoNextTurn();
+                while (gameRoundResult == GameState.InProgress)
+                {
+                    gameRoundResult = DoNextTurn();
+                }
             }
+        }
+
+        private bool CheckIfValidSymbol(string playerSymbol)
+        {
+            
+            throw new NotImplementedException();
         }
 
         public bool CheckBoardSize(string boardSize)
@@ -99,14 +113,13 @@ namespace TicTacToe
         {
             _currentPlayer = _currentPlayer == _player1 ? _player2 : _player1;
             
-            Coordinate userCoord = null;
             var valid = false;
             while (!valid)
             { 
-                userCoord = _currentPlayer.TakeTurn();
-                valid = _coordinateValidator.IsValid(_board, userCoord);
+                _userCoord = _currentPlayer.TakeTurn();
+                valid = _coordinateValidator.IsValid(_board, _userCoord);
             }
-            _board.UpdateSquare(userCoord, _currentPlayer.Symbol);
+            _board.UpdateSquare(_userCoord, _currentPlayer.Symbol);
             return GetState();
         }
 
