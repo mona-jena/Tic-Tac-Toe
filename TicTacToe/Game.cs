@@ -19,7 +19,7 @@ namespace TicTacToe
             {
                 _board = new Board(size);
             }
-            
+             
             _player1 = player1;
             _player2 = player2;
             _currentPlayer = _player1;
@@ -30,24 +30,7 @@ namespace TicTacToe
             Console.WriteLine("Welcome to Tic Tac Toe!");
             while (true)
             {
-                var consoleReaderWriter = new ConsoleReaderWriter();
-                consoleReaderWriter.Write("What size board would you like to play with? ");
-
-                var boardSize = consoleReaderWriter.Read();
-                var validBoardSize = CheckBoardSize(boardSize);
                 
-                // Console.WriteLine("How many players will be playing?");
-                // var noOfPlayers = Console.ReadLine();
-                
-                consoleReaderWriter.Write("Player 1, what symbol would you like to be?");
-                var player1Symbol = consoleReaderWriter.Read();
-                var validSymbol1 = CheckIfValidSymbol(player1Symbol);
-                var player1 = new Player(char.Parse(player1Symbol), consoleReaderWriter);
-                
-                consoleReaderWriter.Write("Player 2, what symbol would you like to be?");
-                var player2Symbol = consoleReaderWriter.Read();
-                var validSymbol2 = CheckIfValidSymbol(player2Symbol);
-                var player2 = new Player(char.Parse(player2Symbol), consoleReaderWriter);
                 
                 var gameRoundResult = DoNextTurn();
                 while (gameRoundResult == GameState.InProgress)
@@ -56,21 +39,29 @@ namespace TicTacToe
                 }
             }
         }
+        
+        // do while loops for each validation inside Play() while loop
+        // separate each validation into 2 methods --> one that checks if valid, other to prompt user to try again --> would it be better in Play() or sep method?
+        // make BoardValidator class to check above 
 
-        private bool CheckIfValidSymbol(string playerSymbol)
+        private bool CheckSymbol(string playerSymbol)
         {
-            
+            // prompt user to try again - while loop until correct symbol 
+            if (playerSymbol.Length == 1)
+            {
+                char.Parse(playerSymbol);
+            }
             throw new NotImplementedException();
         }
 
         public bool CheckBoardSize(string boardSize)
         {
+            // prompt user to try again - while loop until correct symbol
             var validInteger = int.TryParse(boardSize, out var size);
             if (validInteger && size > 0)
             {
                 return true;
             }
-
             return false;
         }
 
