@@ -5,14 +5,23 @@ namespace TicTacToeTests
 {
     public class PlayerTests
     {
+        private readonly TestReaderWriter _readerWriter;
+        private readonly Player _player;
+
+        public PlayerTests()
+        {
+            _readerWriter = new TestReaderWriter();
+            _player = new Player('X', _readerWriter);
+        }
+
+
         [Fact]
         public void TakeTurnShouldTakeSecondUserInputAndReturnTheSpecifiedCoordAfterSecondTurn()
         {
-            var readerWriter = new TestReaderWriter(new []{"1,1", "1,2", "1,3"});
-            var player = new Player('X', readerWriter);
-            var userSpecifiedCoord = player.TakeTurn();
-            userSpecifiedCoord = player.TakeTurn();
-            Coordinate expectedCoord = new Coordinate()
+            _readerWriter.AddMoves(new[] {"1,1", "1,2", "1,3"});
+            var userSpecifiedCoord = _player.TakeTurn();
+            userSpecifiedCoord = _player.TakeTurn();
+            var expectedCoord = new Coordinate
             {
                 X = 1,
                 Y = 2
@@ -20,14 +29,13 @@ namespace TicTacToeTests
 
             Assert.Equal(expectedCoord, userSpecifiedCoord);
         }
-        
+
         [Fact]
         public void TakeTurnShouldIgnoreUserInputThatDoesNotSpecifyXAndY()
         {
-            var readerWriter = new TestReaderWriter(new []{"bb", "1,2", "aaa"});
-            var player = new Player('X', readerWriter);
-            var userSpecifiedCoord = player.TakeTurn();
-            Coordinate expected = new Coordinate()
+            _readerWriter.AddMoves(new[] {"bb", "1,2", "aaa"});
+            var userSpecifiedCoord = _player.TakeTurn();
+            var expected = new Coordinate
             {
                 X = 1,
                 Y = 2
@@ -35,14 +43,13 @@ namespace TicTacToeTests
 
             Assert.Equal(expected, userSpecifiedCoord);
         }
-        
+
         [Fact]
         public void TakeTurnShouldIgnoreUserInputIfItsNotAnInteger()
         {
-            var readerWriter = new TestReaderWriter(new []{"1,bb", "1,2", "aaa"});
-            var player = new Player('X', readerWriter);
-            var userSpecifiedCoord = player.TakeTurn();
-            Coordinate expected = new Coordinate()
+            _readerWriter.AddMoves(new[] {"1,bb", "1,2", "aaa"});
+            var userSpecifiedCoord = _player.TakeTurn();
+            var expected = new Coordinate
             {
                 X = 1,
                 Y = 2
@@ -50,14 +57,13 @@ namespace TicTacToeTests
 
             Assert.Equal(expected, userSpecifiedCoord);
         }
-        
+
         [Fact]
         public void TakeTurnShouldIgnoreUserInputIfTwoInputsAreNotExactlyGiven()
         {
-            var readerWriter = new TestReaderWriter(new []{"1,2,3", "1,2", "aaa"});
-            var player = new Player('X', readerWriter);
-            var userSpecifiedCoord = player.TakeTurn();
-            Coordinate expected = new Coordinate()
+            _readerWriter.AddMoves(new[] {"1,2,3", "1,2", "aaa"});
+            var userSpecifiedCoord = _player.TakeTurn();
+            var expected = new Coordinate
             {
                 X = 1,
                 Y = 2
@@ -65,7 +71,5 @@ namespace TicTacToeTests
 
             Assert.Equal(expected, userSpecifiedCoord);
         }
-        
-        
     }
 }

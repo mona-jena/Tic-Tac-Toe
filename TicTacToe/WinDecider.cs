@@ -28,15 +28,10 @@ namespace TicTacToe
             foreach (var winCondition in _winConditions)
             {
                 var gameState = winCondition.HasWon(board);
-                if (gameState != GameState.InProgress)
-                {
-                    return gameState;
-                }
+                if (gameState != GameState.InProgress) return gameState;
             }
 
             return GameState.InProgress;
         }
     }
-
-    
 }

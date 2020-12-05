@@ -4,10 +4,9 @@ namespace TicTacToe
 {
     public class Coordinate : IEquatable<Coordinate>
     {
-        
         public int X { get; set; }
         public int Y { get; set; }
-        
+
         public bool Equals(Coordinate other)
         {
             if (ReferenceEquals(null, other)) return false;
@@ -19,7 +18,7 @@ namespace TicTacToe
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            if (obj.GetType() != this.GetType()) return false;
+            if (obj.GetType() != GetType()) return false;
             return Equals((Coordinate) obj);
         }
 
@@ -37,7 +36,5 @@ namespace TicTacToe
         {
             return !Equals(left, right);
         }
-
-        
     }
 }

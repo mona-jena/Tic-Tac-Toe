@@ -5,13 +5,14 @@ namespace TicTacToe
     public class Player : IPlayer
     {
         private readonly IReaderWriter _readerWriter;
-        public char Symbol { get; }
-        
+
         public Player(char symbol, IReaderWriter readerWriter)
         {
             Symbol = symbol;
             _readerWriter = readerWriter ?? throw new ArgumentException(nameof(readerWriter));
         }
+
+        public char Symbol { get; }
 
         public Coordinate TakeTurn()
         {
@@ -26,21 +27,17 @@ namespace TicTacToe
                     _readerWriter.Write("Invalid input. Please try again.");
                     continue;
                 }
-                
-                bool ifXIsNumber = int.TryParse(coordArray[0], out var xValue);
-                bool ifYIsNumber = int.TryParse(coordArray[1], out var yValue);
+
+                var ifXIsNumber = int.TryParse(coordArray[0], out var xValue);
+                var ifYIsNumber = int.TryParse(coordArray[1], out var yValue);
 
                 if (ifXIsNumber && ifYIsNumber)
-                {
-                    return new Coordinate()
+                    return new Coordinate
                     {
                         X = xValue,
                         Y = yValue
                     };
-                }
             }
         }
     }
-
-    
 }

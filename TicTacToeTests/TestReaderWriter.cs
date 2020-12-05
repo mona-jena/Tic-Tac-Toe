@@ -4,19 +4,9 @@ namespace TicTacToeTests
 {
     public class TestReaderWriter : IReaderWriter
     {
-        private string[] _userInputs;
         private int _turnNumber;
+        private string[] _userInputs;
 
-        public void AddMoves(string[] userInputs)
-        {
-            _userInputs = userInputs;
-        }
-
-        public TestReaderWriter()
-        {
-            
-        }
-        
         public void Write(string s)
         {
         }
@@ -24,6 +14,11 @@ namespace TicTacToeTests
         public string ReadLine()
         {
             return _userInputs[_turnNumber++];
+        }
+
+        public void AddMoves(string[] userInputs)
+        {
+            _userInputs = userInputs;
         }
     }
 }

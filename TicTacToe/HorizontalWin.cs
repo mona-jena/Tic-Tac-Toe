@@ -6,17 +6,14 @@ namespace TicTacToe
         {
             return IterateThroughBoard(board);
         }
-        
+
         private GameState IterateThroughBoard(Board board)
         {
-            for (int y = 0; y < board.Size; y++)
+            for (var y = 0; y < board.Size; y++)
             {
                 var value = board.GetSquare(new Coordinate {X = 0, Y = y});
 
-                if ((value != '.') && CheckRow(board, y, value))
-                {
-                    return GameState.HorizontalWin;
-                }
+                if (value != '.' && CheckRow(board, y, value)) return GameState.HorizontalWin;
             }
 
             return GameState.InProgress;
@@ -24,14 +21,11 @@ namespace TicTacToe
 
         private bool CheckRow(Board board, int y, char symbol)
         {
-            for (int x = 1; x < board.Size; x++)
+            for (var x = 1; x < board.Size; x++)
             {
                 var coordValue = board.GetSquare(new Coordinate {X = x, Y = y});
 
-                if (symbol != coordValue)
-                {
-                    return false;
-                }
+                if (symbol != coordValue) return false;
             }
 
             return true;

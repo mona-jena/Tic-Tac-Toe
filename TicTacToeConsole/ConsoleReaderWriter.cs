@@ -9,13 +9,11 @@ namespace TicTacToeConsole
         {
             Console.Write(s);
         }
-        
+
 
         public string ReadLine()
         {
             return Console.ReadLine();
         }
-        
-    
     }
 }

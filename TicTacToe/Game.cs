@@ -5,14 +5,13 @@ namespace TicTacToe
     public class Game
     {
         private readonly Board _board;
+        private readonly CoordinateValidator _coordinateValidator = new CoordinateValidator();
         private readonly IPlayer _player1;
         private readonly IPlayer _player2;
-        private IPlayer CurrentPlayer { get; set; }
-        private readonly CoordinateValidator _coordinateValidator = new CoordinateValidator();
-        private Coordinate _userCoord;
-        public GameState State { get; private set; }
         private readonly IReaderWriter _readerWriter;
-        
+        private Coordinate _userCoord;
+
+
         public Game(IPlayer player1, IPlayer player2, int size, IReaderWriter readerWriter)
         {
             if (size < 3) throw new ArgumentException("Size must be greater than 3");
@@ -24,31 +23,30 @@ namespace TicTacToe
             _readerWriter = readerWriter ?? throw new ArgumentException(nameof(readerWriter));
         }
 
+        private IPlayer CurrentPlayer { get; set; }
+        public GameState State { get; private set; }
+
+
         public void PLay()
         {
-            while (State == GameState.InProgress)
-            {
-                DoNextTurn();
-            }
+            while (State == GameState.InProgress) DoNextTurn();
         }
+
 
         private void ChangeState()
         {
             var winDecider = new WinDecider();
             State = winDecider.GetGameState(_board);
-            if (State == GameState.InProgress)
-            {
-                CurrentPlayer = CurrentPlayer == _player1  ? _player2 : _player1;
-            }
+            if (State == GameState.InProgress) CurrentPlayer = CurrentPlayer == _player1 ? _player2 : _player1;
         }
 
 
         public string PrintBoard()
         {
             var stringBoard = "";
-            for (int y = 0; y < _board.Size; y++)
+            for (var y = 0; y < _board.Size; y++)
             {
-                for (int x = 0; x < _board.Size; x++)
+                for (var x = 0; x < _board.Size; x++)
                 {
                     var coord = new Coordinate {X = x, Y = y};
                     stringBoard += _board.GetSquare(coord) + " ";
@@ -59,15 +57,15 @@ namespace TicTacToe
 
             return stringBoard;
         }
-        
+
 
         public IPlayer GetCurrentPlayer()
         {
             return CurrentPlayer;
         }
-        
-        
-        public void DoNextTurn()
+
+
+        private void DoNextTurn()
         {
             var valid = false;
             while (!valid)
@@ -76,9 +74,9 @@ namespace TicTacToe
                 valid = _coordinateValidator.IsValid(_board, _userCoord);
                 _readerWriter.Write("Please enter valid coordinate (x,y)");
             }
+
             _board.UpdateSquare(_userCoord, CurrentPlayer.Symbol);
             ChangeState();
         }
-
     }
 }

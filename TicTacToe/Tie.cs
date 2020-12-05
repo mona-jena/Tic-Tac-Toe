@@ -9,17 +9,12 @@ namespace TicTacToe
 
         private GameState IterateBoard(Board board)
         {
-            for (int y = 0; y < board.Size; y++)
+            for (var y = 0; y < board.Size; y++)
+            for (var x = 0; x < board.Size; x++)
             {
-                for (int x = 0; x < board.Size; x++)
-                {
-                    if (board.GetSquare(new Coordinate() {X = x, Y = y}) != '.')
-                    {
-                        continue;
-                    }
+                if (board.GetSquare(new Coordinate {X = x, Y = y}) != '.') continue;
 
-                    return GameState.InProgress;
-                }
+                return GameState.InProgress;
             }
 
             return GameState.Tie;
