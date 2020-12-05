@@ -1,7 +1,7 @@
 using System;
 using TicTacToe;
 
-namespace TicTacToeConsoleTests
+namespace TicTacToeConsole
 {
     public class ConsoleReaderWriter : IReaderWriter
     {
@@ -11,9 +11,11 @@ namespace TicTacToeConsoleTests
         }
         
 
-        public string Read()
+        public string ReadLine()
         {
-            return Console.Read().ToString();
+            return Console.ReadLine();
         }
+        
+    
     }
 }

@@ -4,7 +4,7 @@ namespace TicTacToe
     {
         void Write(string s);
 
-        string Read();
+        string ReadLine();
         
         
     }

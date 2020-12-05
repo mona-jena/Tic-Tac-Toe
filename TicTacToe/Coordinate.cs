@@ -4,6 +4,10 @@ namespace TicTacToe
 {
     public class Coordinate : IEquatable<Coordinate>
     {
+        
+        public int X { get; set; }
+        public int Y { get; set; }
+        
         public bool Equals(Coordinate other)
         {
             if (ReferenceEquals(null, other)) return false;
@@ -34,7 +38,6 @@ namespace TicTacToe
             return !Equals(left, right);
         }
 
-        public int X { get; set; }
-        public int Y { get; set; }
+        
     }
 }

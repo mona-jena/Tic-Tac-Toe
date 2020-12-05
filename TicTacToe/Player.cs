@@ -1,6 +1,8 @@
+using System;
+
 namespace TicTacToe
 {
-    public class Player
+    public class Player : IPlayer
     {
         private readonly IReaderWriter _readerWriter;
         public char Symbol { get; }
@@ -8,15 +10,15 @@ namespace TicTacToe
         public Player(char symbol, IReaderWriter readerWriter)
         {
             Symbol = symbol;
-            _readerWriter = readerWriter;
+            _readerWriter = readerWriter ?? throw new ArgumentException(nameof(readerWriter));
         }
 
         public Coordinate TakeTurn()
         {
             while (true)
             {
-                _readerWriter.Write("Enter a coord x,y: ");
-                var userSpecifiedCoord = _readerWriter.Read();
+                _readerWriter.Write(Symbol + " Enter a coord x,y: ");
+                var userSpecifiedCoord = _readerWriter.ReadLine();
                 var coordArray = userSpecifiedCoord.Split(",");
 
                 if (coordArray.Length != 2)

@@ -1,76 +1,45 @@
 ﻿using System;
-using TicTacToeConsoleTests;
 
 namespace TicTacToe
 {
     public class Game
     {
         private readonly Board _board;
-        private readonly Player _player1;
-        private readonly Player _player2;
-        private Player _currentPlayer;
+        private readonly IPlayer _player1;
+        private readonly IPlayer _player2;
+        private IPlayer CurrentPlayer { get; set; }
         private readonly CoordinateValidator _coordinateValidator = new CoordinateValidator();
         private Coordinate _userCoord;
+        public GameState State { get; private set; }
+        private readonly IReaderWriter _readerWriter;
         
-        public Game(Player player1, Player player2, int size)
+        public Game(IPlayer player1, IPlayer player2, int size, IReaderWriter readerWriter)
         {
-            var validSize = CheckBoardSize(size);
-            if (validSize)
-            {
-                _board = new Board(size);
-            }
-             
+            if (size < 3) throw new ArgumentException("Size must be greater than 3");
+            _board = new Board(size);
+
             _player1 = player1;
             _player2 = player2;
-            _currentPlayer = _player1;
+            CurrentPlayer = _player1;
+            _readerWriter = readerWriter ?? throw new ArgumentException(nameof(readerWriter));
         }
 
         public void PLay()
         {
-            Console.WriteLine("Welcome to Tic Tac Toe!");
-            while (true)
+            while (State == GameState.InProgress)
             {
-                
-                
-                var gameRoundResult = DoNextTurn();
-                while (gameRoundResult == GameState.InProgress)
-                {
-                    gameRoundResult = DoNextTurn();
-                }
+                DoNextTurn();
             }
         }
-        
-        // do while loops for each validation inside Play() while loop
-        // separate each validation into 2 methods --> one that checks if valid, other to prompt user to try again --> would it be better in Play() or sep method?
-        // make BoardValidator class to check above 
 
-        private bool CheckSymbol(string playerSymbol)
-        {
-            // prompt user to try again - while loop until correct symbol 
-            if (playerSymbol.Length == 1)
-            {
-                char.Parse(playerSymbol);
-            }
-            throw new NotImplementedException();
-        }
-
-        public bool CheckBoardSize(string boardSize)
-        {
-            // prompt user to try again - while loop until correct symbol
-            var validInteger = int.TryParse(boardSize, out var size);
-            if (validInteger && size > 0)
-            {
-                return true;
-            }
-            return false;
-        }
-
-
-        public GameState GetState()
+        private void ChangeState()
         {
             var winDecider = new WinDecider();
-            var gameState = winDecider.GetGameState(_board);
-            return gameState;
+            State = winDecider.GetGameState(_board);
+            if (State == GameState.InProgress)
+            {
+                CurrentPlayer = CurrentPlayer == _player1  ? _player2 : _player1;
+            }
         }
 
 
@@ -81,39 +50,35 @@ namespace TicTacToe
             {
                 for (int x = 0; x < _board.Size; x++)
                 {
-                    var coord = new Coordinate { X = x, Y = y};
+                    var coord = new Coordinate {X = x, Y = y};
                     stringBoard += _board.GetSquare(coord) + " ";
                 }
 
                 stringBoard += "\n";
             }
-            
-            //CONDENSE
 
             return stringBoard;
         }
         
 
-        public Player GetCurrentPlayer()
+        public IPlayer GetCurrentPlayer()
         {
-            return _currentPlayer;
+            return CurrentPlayer;
         }
         
         
-        public GameState DoNextTurn()
+        public void DoNextTurn()
         {
-            _currentPlayer = _currentPlayer == _player1 ? _player2 : _player1;
-            
             var valid = false;
             while (!valid)
-            { 
-                _userCoord = _currentPlayer.TakeTurn();
+            {
+                _userCoord = CurrentPlayer.TakeTurn();
                 valid = _coordinateValidator.IsValid(_board, _userCoord);
+                _readerWriter.Write("Please enter valid coordinate (x,y)");
             }
-            _board.UpdateSquare(_userCoord, _currentPlayer.Symbol);
-            return GetState();
+            _board.UpdateSquare(_userCoord, CurrentPlayer.Symbol);
+            ChangeState();
         }
-
 
     }
 }

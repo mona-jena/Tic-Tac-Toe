@@ -7,16 +7,21 @@ namespace TicTacToeTests
         private string[] _userInputs;
         private int _turnNumber;
 
-        public TestReaderWriter(string[] userInputs)
+        public void AddMoves(string[] userInputs)
         {
             _userInputs = userInputs;
         }
 
+        public TestReaderWriter()
+        {
+            
+        }
+        
         public void Write(string s)
         {
         }
 
-        public string Read()
+        public string ReadLine()
         {
             return _userInputs[_turnNumber++];
         }

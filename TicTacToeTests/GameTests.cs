@@ -3,42 +3,46 @@ using Xunit;
 
 namespace TicTacToeTests
 {
+    
     public class GameTests
     {
+        private readonly Game _game;
+        private readonly Player _player1;
+        private readonly Player _player2;
+        private readonly TestReaderWriter _readerWriter1;
+        private readonly TestReaderWriter _readerWriter2;
+
+
+        public GameTests()
+        {
+            _readerWriter1 = new TestReaderWriter();
+            _readerWriter2 = new TestReaderWriter();
+            _player1 = new Player('X', _readerWriter1);
+            _player2 = new Player('O', _readerWriter2);
+            _game = new Game(_player1, _player2, 3, new TestReaderWriter());
+        }
+        
         [Fact]
         public void AcceptanceTestWhenPlayer1Wins()
         {
-            var readerWriter1 = new TestReaderWriter(new []{"0,0", "1,0", "2,0"});
-            var readerWriter2 = new TestReaderWriter(new []{"0,2", "1,2"});
-            var player1 = new Player('X', readerWriter1);
-            var player2 = new Player('O', readerWriter2);
-            Game game = new Game(player1, player2, 3);
-            game.DoNextTurn();
-            while (game.GetState() == GameState.InProgress)
-            {
-                game.DoNextTurn();
-            }
-
-            Assert.Equal(GameState.HorizontalWin, game.GetState());
-            Assert.Equal(player1, game.GetCurrentPlayer());
+            _readerWriter1.AddMoves(new []{"0,0", "1,0", "2,0"});
+            _readerWriter2.AddMoves(new []{"0,2", "1,2"});
+            _game.PLay();
+            Assert.Equal(GameState.HorizontalWin, _game.State);
+            Assert.Equal(_player1, _game.GetCurrentPlayer());
         }
         
-        //player 2 test
         [Fact]
         public void AcceptanceTestWhenPlayer2Wins()
         {
-            var readerWriter1 = new TestReaderWriter(new []{"0,0", "1,1", "0,1"});
-            var readerWriter2 = new TestReaderWriter(new []{"2,0", "2,2", "2,1"});
-            var player1 = new Player('X', readerWriter1);
-            var player2 = new Player('O', readerWriter2);
-            Game game = new Game(player1, player2, 3);
-            game.DoNextTurn();
-            while (game.GetState() == GameState.InProgress)
-            {
-                game.DoNextTurn();
-            }
+            _readerWriter1.AddMoves(new []{"0,0", "1,1", "0,1"});
+            _readerWriter2.AddMoves(new []{"2,0", "2,2", "2,1"});
+            var player1 = new Player('X', _readerWriter1);
+            var player2 = new Player('O', _readerWriter2);
+            Game game = new Game(player1, player2, 3, new TestReaderWriter());
+            game.PLay();
 
-            Assert.Equal(GameState.VerticalWin, game.GetState());
+            Assert.Equal(GameState.VerticalWin, game.State);
             Assert.Equal(player2, game.GetCurrentPlayer());
         }
         
@@ -46,34 +50,26 @@ namespace TicTacToeTests
         [Fact]
         public void AcceptanceTestWhenThereIsDraw()
         {
-            var readerWriter1 = new TestReaderWriter(new []{"1,1", "1,0", "0,1", "2,2", "0,2"});
-            var readerWriter2 = new TestReaderWriter(new []{"0,0", "2,0", "1,2", "2,1"});
-            var player1 = new Player('X', readerWriter1);
-            var player2 = new Player('O', readerWriter2);
-            Game game = new Game(player1, player2, 3);
-            game.DoNextTurn();
-            while (game.GetState() == GameState.InProgress)
-            {
-                game.DoNextTurn();
-            }
+            _readerWriter1.AddMoves(new []{"1,1", "1,0", "0,1", "2,2", "0,2"});
+            _readerWriter2.AddMoves(new []{"0,0", "2,0", "1,2", "2,1"});
+            var player1 = new Player('X', _readerWriter1);
+            var player2 = new Player('O', _readerWriter2);
+            Game game = new Game(player1, player2, 3, new TestReaderWriter());
+            game.PLay();
 
-            Assert.Equal(GameState.Tie, game.GetState());
+            Assert.Equal(GameState.Tie, game.State);
             Assert.Equal(player1, game.GetCurrentPlayer());
         }
 
         [Fact]
         public void TestIfPrintBoardOutputsInCorrectFormat()
         {
-            var readerWriter1 = new TestReaderWriter(new []{"1,1", "1,0", "0,1", "2,2", "0,2"});
-            var readerWriter2 = new TestReaderWriter(new []{"0,0", "2,0", "1,2", "2,1"});
-            var player1 = new Player('X', readerWriter1);
-            var player2 = new Player('O', readerWriter2);
-            Game game = new Game(player1, player2, 3);
-            //game.DoNextTurn();
-            /*while (game.GetState() == GameState.InProgress)
-            {
-                game.DoNextTurn();
-            }*/
+            _readerWriter1.AddMoves(new []{"1,1", "1,0", "0,1", "2,2", "0,2"});
+            _readerWriter2.AddMoves(new []{"0,0", "2,0", "1,2", "2,1"});
+            var player1 = new Player('X', _readerWriter1);
+            var player2 = new Player('O', _readerWriter2);
+            Game game = new Game(player1, player2, 3, new TestReaderWriter());
+          
             var expectedBoard =
                 ". . . \n" +
                 ". . . \n" +
@@ -85,16 +81,13 @@ namespace TicTacToeTests
         [Fact]
         public void TestIfPrintBoardOutputsInCorrectFormatWithSymbols()
         {
-            var readerWriter1 = new TestReaderWriter(new []{"0,0", "1,0", "2,0"});
-            var readerWriter2 = new TestReaderWriter(new []{"0,2", "1,2"});
-            var player1 = new Player('X', readerWriter1);
-            var player2 = new Player('O', readerWriter2);
-            Game game = new Game(player1, player2, 3);
-            game.DoNextTurn();
-            while (game.GetState() == GameState.InProgress)
-            {
-                game.DoNextTurn();
-            }
+            _readerWriter1.AddMoves(new []{"0,0", "1,0", "2,0"});
+            _readerWriter2.AddMoves(new []{"0,2", "1,2"});
+            var player1 = new Player('X', _readerWriter1);
+            var player2 = new Player('O', _readerWriter2);
+            Game game = new Game(player1, player2, 3, new TestReaderWriter());
+            game.PLay();
+            
             var expectedBoard =
                 "X X X \n" +
                 ". . . \n" +
@@ -103,40 +96,7 @@ namespace TicTacToeTests
             Assert.Equal(game.PrintBoard(), expectedBoard);
         }
         
-        //ACCEPTANCE TEST FOR game.Play();
-        //test each ifValid symbol, size
-        
-        
-        [Fact]
-        public void AcceptanceTestWhenPlayerEntersBoardSize()
-        {
-            var readerWriter1 = new TestReaderWriter(new []{"0,0", "1,0", "2,0"});
-            var readerWriter2 = new TestReaderWriter(new []{"0,2", "1,2"});
-            var player1 = new Player('X', readerWriter1);
-            var player2 = new Player('O', readerWriter2);
-            var size = "3";
-            Game game = new Game(player1, player2, size);
-            
-            var ifValidBoardSize = game.CheckBoardSize(size);
-            
-            Assert.True(ifValidBoardSize);
-        }
-        
-        
-        [Fact]
-        public void AcceptanceTestWhenPlayerEntersSymbol()
-        {
-            var readerWriter1 = new TestReaderWriter(new []{"0,0", "1,0", "2,0"});
-            var readerWriter2 = new TestReaderWriter(new []{"0,2", "1,2"});
-            var player1 = new Player('X', readerWriter1);
-            var player2 = new Player('O', readerWriter2);
-            var size = "3";
-            Game game = new Game(player1, player2, size);
-            
-            var ifValidBoardSize = game.CheckBoardSize(size);
-            
-            Assert.True(ifValidBoardSize);
-        }
+      
     }
 }
 
