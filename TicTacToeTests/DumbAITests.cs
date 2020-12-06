@@ -12,8 +12,8 @@ namespace TicTacToeTests
         
         public DumbAITests()
         {
-            _player = new Player('X', _readerWriter);
             _readerWriter = new TestReaderWriter();
+            _player = new Player('X', _readerWriter);
             _randomGenerator = new TestRandomGenerator();
         }
         
@@ -22,21 +22,26 @@ namespace TicTacToeTests
         {
             _readerWriter.AddMoves(new[] {"0,0", "1,0", "2,0"});
             _randomGenerator.AddNumber(new []{"0,0", "1,1", "2,1", "3,1", "0,1" });
-            var aiPlayer = new DumbAI(_randomGenerator);
+            var aiPlayer = new DumbAI(_randomGenerator, 3);
             /*var game = new Game(_player, aiPlayer, 3, new TestReaderWriter());
             game.PLay();*/
             
-            var pickedSymbol = aiPlayer.ChooseSymbol();
+            var pickedSymbol = aiPlayer.Symbol;
             
-            var expectedSymbol = 'O';
+            var expectedSymbol = 'X';
             
             Assert.Equal(expectedSymbol, pickedSymbol);
         }
 
-        /*[Fact]
+        [Fact]
         public void TakeTurnShouldReturnRandomPosition()
         {
-            
-        }*/
+            _readerWriter.AddMoves(new[] {"0,0", "1,0", "2,0"});
+            _randomGenerator.AddNumber(new []{"0,0", "1,1", "2,1", "3,1", "0,1" });
+            var aiPlayer = new DumbAI(_randomGenerator, 3);
+            var game = new Game(_player, aiPlayer, 3, new TestReaderWriter());
+            game.PLay();
+            //FINISH WRITING TEST
+        }
     }
 }
