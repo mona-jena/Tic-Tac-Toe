@@ -5,14 +5,14 @@ namespace TicTacToe
     public class Player : IPlayer
     {
         private readonly IReaderWriter _readerWriter;
+        
+        public char Symbol { get; }
 
         public Player(char symbol, IReaderWriter readerWriter)
         {
             Symbol = symbol;
             _readerWriter = readerWriter ?? throw new ArgumentException(nameof(readerWriter));
         }
-
-        public char Symbol { get; }
 
         public Coordinate TakeTurn()
         {

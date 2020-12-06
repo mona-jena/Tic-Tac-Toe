@@ -28,7 +28,7 @@ namespace TicTacToeTests
             _readerWriter2.AddMoves(new[] {"0,2", "1,2"});
             _game.PLay();
             Assert.Equal(GameState.HorizontalWin, _game.State);
-            Assert.Equal(_player1, _game.GetCurrentPlayer());
+            Assert.Equal(_player1, _game.CurrentPlayer);
         }
 
         [Fact]
@@ -42,7 +42,7 @@ namespace TicTacToeTests
             game.PLay();
 
             Assert.Equal(GameState.VerticalWin, game.State);
-            Assert.Equal(player2, game.GetCurrentPlayer());
+            Assert.Equal(player2, game.CurrentPlayer);
         }
 
         // draw test
@@ -57,7 +57,7 @@ namespace TicTacToeTests
             game.PLay();
 
             Assert.Equal(GameState.Tie, game.State);
-            Assert.Equal(player1, game.GetCurrentPlayer());
+            Assert.Equal(player1, game.CurrentPlayer);
         }
 
         [Fact]

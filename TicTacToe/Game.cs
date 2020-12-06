@@ -10,6 +10,9 @@ namespace TicTacToe
         private readonly IPlayer _player2;
         private readonly IReaderWriter _readerWriter;
         private Coordinate _userCoord;
+        
+        public IPlayer CurrentPlayer { get; private set; }
+        public GameState State { get; private set; }
 
 
         public Game(IPlayer player1, IPlayer player2, int size, IReaderWriter readerWriter)
@@ -22,9 +25,6 @@ namespace TicTacToe
             CurrentPlayer = _player1;
             _readerWriter = readerWriter ?? throw new ArgumentException(nameof(readerWriter));
         }
-
-        private IPlayer CurrentPlayer { get; set; }
-        public GameState State { get; private set; }
 
 
         public void PLay()
@@ -56,12 +56,6 @@ namespace TicTacToe
             }
 
             return stringBoard;
-        }
-
-
-        public IPlayer GetCurrentPlayer()
-        {
-            return CurrentPlayer;
         }
 
 
