@@ -1,6 +1,6 @@
 namespace TicTacToe
 {
-    public interface IRandomGenerator
+    public interface INumberGenerator
     {
         int Next(int max);
     }
