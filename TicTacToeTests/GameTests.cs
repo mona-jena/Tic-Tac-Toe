@@ -10,8 +10,7 @@ namespace TicTacToeTests
         private readonly Player _player2;
         private readonly TestReaderWriter _readerWriter1;
         private readonly TestReaderWriter _readerWriter2;
-
-
+        
         public GameTests()
         {
             _readerWriter1 = new TestReaderWriter();

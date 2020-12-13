@@ -1,10 +1,12 @@
+using System.Collections.Generic;
+
 namespace TicTacToe
 {
-    class SmartAi : IPlayer
+    public class SmartComputerPlayer : IPlayer
     {
         public char Symbol { get; }
         
-        public SmartAi(char symbol)
+        public SmartComputerPlayer(char symbol, List<Coordinate> humanPlayerCoords)
         {
             Symbol = symbol;
         }
@@ -14,6 +16,6 @@ namespace TicTacToe
             throw new System.NotImplementedException();
         }
         
-        private Calculate
+        
     }
 }

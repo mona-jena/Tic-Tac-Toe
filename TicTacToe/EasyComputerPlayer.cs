@@ -4,12 +4,13 @@ namespace TicTacToe
     {
         private readonly INumberGenerator _number;
         private readonly int _boardSize;
-        public char Symbol { get; } = 'X';
+        public char Symbol { get; } 
 
-        public EasyComputerPlayer(INumberGenerator number, int boardSize)
+        public EasyComputerPlayer(INumberGenerator number, int boardSize, char aiSymbol)
         {
             _number = number;
             _boardSize = boardSize;
+            Symbol = aiSymbol;
         }
             
         public Coordinate TakeTurn()

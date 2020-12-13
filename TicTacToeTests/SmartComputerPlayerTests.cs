@@ -1,9 +1,10 @@
+using System.Collections.Generic;
 using TicTacToe;
 using Xunit;
 
 namespace TicTacToeTests
 {
-    public class SmartAITests
+    public class SmartComputerPlayerTests
     {
        [Fact]
        public void SymbolShouldReturnANonNullChar()
@@ -17,9 +18,21 @@ namespace TicTacToeTests
             
            Assert.Equal(expectedSymbol, aiSymbol);
        }
-       
+
        [Fact]
-       public void 
+       public void BlockPossibleHorizontalWin()
+       {
+           var humanPlayerCoords = new List<Coordinate>();
+           humanPlayerCoords.Add(new Coordinate {X = 1, Y = 0});
+           humanPlayerCoords.Add(new Coordinate {X = 1, Y = 1});
+           var smartComputerPlayer = new SmartComputerPlayer('O', humanPlayerCoords);
+
+           //smartComputerPlayer.BlockHorizontalWin();
+           var smartPlayerTurn = smartComputerPlayer.TakeTurn();
+           var expectedCoord = new Coordinate {X = 1, Y = 2};
+           Assert.Equal(expectedCoord, smartPlayerTurn);
+
+       }
     }
     
 }

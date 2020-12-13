@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace TicTacToe
 {
@@ -7,7 +8,7 @@ namespace TicTacToe
         private readonly IReaderWriter _readerWriter;
         
         public char Symbol { get; }
-
+        
         public Player(char symbol, IReaderWriter readerWriter)
         {
             Symbol = symbol;

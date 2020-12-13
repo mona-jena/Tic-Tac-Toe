@@ -3,13 +3,13 @@ using Xunit;
 
 namespace TicTacToeTests
 {
-    public class DumbAITests
+    public class EasyComputerPlayerTests
     {
         private readonly Player _player;
         private readonly TestReaderWriter _readerWriter;
         private readonly FakeNumberGenerator _numberGenerator;
         
-        public DumbAITests()
+        public EasyComputerPlayerTests()
         {
             _readerWriter = new TestReaderWriter();
             _player = new Player('X', _readerWriter);
