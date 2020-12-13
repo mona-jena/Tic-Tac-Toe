@@ -16,13 +16,24 @@ namespace TicTacToeTests
             _numberGenerator = new FakeNumberGenerator();
         }
         
-        //take symbol through constructor in EasyComputerPlayer and test it here
+        [Fact]
+        public void SymbolShouldReturnANonNullChar()
+        {
+            _numberGenerator.AddNumbers(new []{0,0, 1,0, 2,0});
+            char player2Symbol = 'O';
+            var aiPlayer = new EasyComputerPlayer(_numberGenerator, 3, player2Symbol);
+            var aiSymbol = aiPlayer.Symbol;
+            var expectedSymbol = 'O';
+            
+            Assert.Equal(expectedSymbol, aiSymbol);
+        }
 
         [Fact]
         public void TakeTurnShouldReturnRandomPosition() 
         {
             _numberGenerator.AddNumbers(new []{0,0, 1,0, 2,0});
-            var aiPlayer = new EasyComputerPlayer(_numberGenerator, 3);
+            char player2Symbol = 'O';
+            var aiPlayer = new EasyComputerPlayer(_numberGenerator, 3, player2Symbol);
             var firstTurn = aiPlayer.TakeTurn();
             var secondTurn = aiPlayer.TakeTurn();
             var expectedCoord1 = new Coordinate()
