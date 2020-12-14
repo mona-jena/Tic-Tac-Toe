@@ -12,8 +12,6 @@ namespace TicTacToe
         private readonly IReaderWriter _readerWriter;
         private Coordinate _userCoord;
         
-        public List<Coordinate> PlayerCoordinates { get; }
-        
         public IPlayer CurrentPlayer { get; private set; }
         public GameState State { get; private set; }
 

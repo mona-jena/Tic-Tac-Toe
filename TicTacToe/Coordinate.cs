@@ -6,10 +6,20 @@ namespace TicTacToe
     {
         public int X { get; set; }
         public int Y { get; set; }
+        
+        public Coordinate()
+        {
+            
+        }
+        
+        public Coordinate(int x, int y)
+        {
+            X = x;
+            Y = y;
+        }
 
         public bool Equals(Coordinate other)
         {
-            if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
             return X == other.X && Y == other.Y;
         }

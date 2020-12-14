@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using TicTacToe;
 using Xunit;
 
@@ -9,10 +8,7 @@ namespace TicTacToeTests
        [Fact]
        public void SymbolShouldReturnANonNullChar()
        {
-           FakeNumberGenerator numberGenerator = new FakeNumberGenerator();
-           numberGenerator.AddNumbers(new []{0,0, 1,0, 2,0});
-           char player2Symbol = 'O';
-           var aiPlayer = new EasyComputerPlayer(numberGenerator, 3, player2Symbol);
+           var aiPlayer = new SmartComputerPlayer('O', 'X', new Board(3));
            var aiSymbol = aiPlayer.Symbol;
            var expectedSymbol = 'O';
             
@@ -20,18 +16,78 @@ namespace TicTacToeTests
        }
 
        [Fact]
-       public void BlockPossibleHorizontalWin()
+       public void BlockPossibleHorizontalWin() 
        {
-           var humanPlayerCoords = new List<Coordinate>();
-           humanPlayerCoords.Add(new Coordinate {X = 1, Y = 0});
-           humanPlayerCoords.Add(new Coordinate {X = 1, Y = 1});
-           var smartComputerPlayer = new SmartComputerPlayer('O', humanPlayerCoords);
+           var board = new Board(3);
+           board.UpdateSquare(new Coordinate(1,1), 'X');
+           board.UpdateSquare(new Coordinate(2, 1), 'X');
+           var smartComputerPlayer = new SmartComputerPlayer('O', 'X', board);
 
-           //smartComputerPlayer.BlockHorizontalWin();
+           var smartPlayerTurn = smartComputerPlayer.TakeTurn();
+           var expectedCoord = new Coordinate {X = 0, Y = 1};
+           
+           Assert.Equal(expectedCoord, smartPlayerTurn);
+       }
+       
+       [Fact]
+       public void BlockPossibleVerticalWin() 
+       {
+           var board = new Board(3);
+           board.UpdateSquare(new Coordinate(1,0), 'X');
+           board.UpdateSquare(new Coordinate(1, 1), 'X');
+           var smartComputerPlayer = new SmartComputerPlayer('O', 'X', board);
+
            var smartPlayerTurn = smartComputerPlayer.TakeTurn();
            var expectedCoord = new Coordinate {X = 1, Y = 2};
+           
            Assert.Equal(expectedCoord, smartPlayerTurn);
+       }
+       
+       [Fact]
+       public void BlockPossibleLeftDiagonalWin() 
+       {
+           var board = new Board(3);
+           board.UpdateSquare(new Coordinate(2,0), 'X');
+           board.UpdateSquare(new Coordinate(1, 1), 'X');
+           var smartComputerPlayer = new SmartComputerPlayer('O', 'X',board);
 
+           var smartPlayerTurn = smartComputerPlayer.TakeTurn();
+           var expectedCoord = new Coordinate {X = 0, Y = 2};
+           
+           Assert.Equal(expectedCoord, smartPlayerTurn);
+       }
+       
+       [Fact]
+       public void BlockPossibleRightDiagonalWin() 
+       {
+           var board = new Board(3);
+           board.UpdateSquare(new Coordinate(0,0), 'X');
+           board.UpdateSquare(new Coordinate(2, 2), 'X');
+           var smartComputerPlayer = new SmartComputerPlayer('O', 'X',board);
+
+           var smartPlayerTurn = smartComputerPlayer.TakeTurn();
+           var expectedCoord = new Coordinate {X = 1, Y = 1};
+           
+           Assert.Equal(expectedCoord, smartPlayerTurn);
+       }
+       
+       [Fact]
+       public void MakeADraw() 
+       {
+           var board = new Board(3);
+           board.UpdateSquare(new Coordinate(0,0), 'X');
+           board.UpdateSquare(new Coordinate(2, 0), 'X');
+           board.UpdateSquare(new Coordinate(1, 1), 'X');
+           board.UpdateSquare(new Coordinate(2, 1), 'X');
+           board.UpdateSquare(new Coordinate(1, 0), 'O');
+           board.UpdateSquare(new Coordinate(0, 1), 'O');
+           board.UpdateSquare(new Coordinate(2, 2), 'O');
+           var smartComputerPlayer = new SmartComputerPlayer('O', 'X',board);
+
+           var smartPlayerTurn = smartComputerPlayer.TakeTurn();
+           var expectedCoord = new Coordinate {X = 0, Y = 2};
+           
+           Assert.Equal(expectedCoord, smartPlayerTurn);
        }
     }
     
