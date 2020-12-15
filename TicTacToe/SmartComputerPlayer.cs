@@ -19,6 +19,8 @@ namespace TicTacToe
 
         public Coordinate TakeTurn()
         {
+            
+            
             var computerMove = new Coordinate();
             for (var y = 0; y < _board.Size; y++)
             {

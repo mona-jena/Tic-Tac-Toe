@@ -10,8 +10,6 @@ namespace TicTacToe
         private readonly IPlayer _player2;
         private readonly IReaderWriter _readerWriter;
         private Coordinate _userCoord;
-        public int TurnCount { get; private set; }
-
 
         public Game(IPlayer player1, IPlayer player2, int size, IReaderWriter readerWriter)
         {
@@ -72,7 +70,6 @@ namespace TicTacToe
             }
 
             _board.UpdateSquare(_userCoord, CurrentPlayer.Symbol);
-            TurnCount++;
             ChangeState();
         }
     }
