@@ -1,4 +1,3 @@
-
 namespace TicTacToe
 {
     public class SmartComputerPlayer : IPlayer
@@ -17,9 +16,28 @@ namespace TicTacToe
         }
 
 
+        private int CoordinatesUsed()
+        {
+            var coordinatesUsed = 0;
+            for (var y = 0; y < _board.Size; y++)
+            {
+                for (var x = 0; x < _board.Size; x++)
+                {
+                    var coord = new Coordinate {X = x, Y = y};
+                    if (_board.GetSquare(coord) != '.') {}
+                        coordinatesUsed++;
+                }
+            }
+
+            return coordinatesUsed;
+        }
+        
         public Coordinate TakeTurn()
         {
-            
+            if (CoordinatesUsed() == 1)
+            {
+                
+            }
             
             var computerMove = new Coordinate();
             for (var y = 0; y < _board.Size; y++)
@@ -39,7 +57,6 @@ namespace TicTacToe
             return computerMove;
         }
         
-        private void Check
 
         private bool TryMove(Coordinate possibleCoord)
         {
