@@ -24,7 +24,7 @@ namespace TicTacToe
                 for (var x = 0; x < _board.Size; x++)
                 {
                     var coord = new Coordinate {X = x, Y = y};
-                    if (_board.GetSquare(coord) != '.') {}
+                    if (_board.GetSquare(coord) != '.')
                         coordinatesUsed++;
                 }
             }
@@ -34,9 +34,10 @@ namespace TicTacToe
         
         public Coordinate TakeTurn()
         {
-            if (CoordinatesUsed() == 1)
+            var middleCoord = new Coordinate {X = _board.Size/2, Y = _board.Size/2}; //how would it work for 4x4
+            if ((CoordinatesUsed() == 0) || ((CoordinatesUsed() == 1) && (_board.GetSquare(middleCoord) == '.')))
             {
-                
+                return middleCoord;
             }
             
             var computerMove = new Coordinate();
