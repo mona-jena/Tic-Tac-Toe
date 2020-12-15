@@ -7,17 +7,16 @@ namespace TicTacToeTests
     {
         private readonly Game _game;
         private readonly Player _player1;
-        private readonly Player _player2;
         private readonly TestReaderWriter _readerWriter1;
         private readonly TestReaderWriter _readerWriter2;
-        
+
         public GameTests()
         {
             _readerWriter1 = new TestReaderWriter();
             _readerWriter2 = new TestReaderWriter();
             _player1 = new Player('X', _readerWriter1);
-            _player2 = new Player('O', _readerWriter2);
-            _game = new Game(_player1, _player2, 3, new TestReaderWriter());
+            var player2 = new Player('O', _readerWriter2);
+            _game = new Game(_player1, player2, 3, new TestReaderWriter());
         }
 
         [Fact]

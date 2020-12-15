@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace TicTacToe
 {
@@ -11,9 +10,6 @@ namespace TicTacToe
         private readonly IPlayer _player2;
         private readonly IReaderWriter _readerWriter;
         private Coordinate _userCoord;
-        
-        public IPlayer CurrentPlayer { get; private set; }
-        public GameState State { get; private set; }
 
 
         public Game(IPlayer player1, IPlayer player2, int size, IReaderWriter readerWriter)
@@ -26,6 +22,9 @@ namespace TicTacToe
             CurrentPlayer = _player1;
             _readerWriter = readerWriter ?? throw new ArgumentException(nameof(readerWriter));
         }
+
+        public IPlayer CurrentPlayer { get; private set; }
+        public GameState State { get; private set; }
 
 
         public void PLay()
@@ -67,9 +66,10 @@ namespace TicTacToe
             {
                 _userCoord = CurrentPlayer.TakeTurn();
                 valid = _coordinateValidator.IsValid(_board, _userCoord);
-                if(valid == false)
+                if (valid == false)
                     _readerWriter.Write("Please enter valid coordinate (x,y)\n");
             }
+
             _board.UpdateSquare(_userCoord, CurrentPlayer.Symbol);
             ChangeState();
         }

@@ -5,8 +5,8 @@ namespace TicTacToeTests
 {
     public class PlayerTests
     {
-        private readonly TestReaderWriter _readerWriter;
         private readonly Player _player;
+        private readonly TestReaderWriter _readerWriter;
 
         public PlayerTests()
         {

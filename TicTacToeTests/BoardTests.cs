@@ -1,4 +1,3 @@
-using System;
 using TicTacToe;
 using Xunit;
 
@@ -54,14 +53,6 @@ namespace TicTacToeTests
             var expected = 'X';
             Assert.Equal(expected, result);
         }
-
-        [Fact]
-        public void DeepCopyShouldReturnNewBoardWithDifferentReferenceButSameValues()
-        {
-            var board = new Board(3);
-            var boardMock = board.DeepCopy();
-
-            Assert.False(ReferenceEquals(board, boardMock));
-        }
+        
     }
 }
