@@ -26,15 +26,18 @@ namespace TicTacToe
                 {
                     var possibleCoord = new Coordinate {X = x, Y = y};
                     var valid = _coordinateValidator.IsValid(_board, possibleCoord);
-                    if (!valid) continue;
+                    if (!valid) 
+                        continue;
 
-                    computerMove = possibleCoord; // is this helpful??
+                    computerMove = possibleCoord;
                     if (TryMove(possibleCoord)) 
                         return possibleCoord;
                 }
             }
             return computerMove;
         }
+        
+        private void Check
 
         private bool TryMove(Coordinate possibleCoord)
         {
