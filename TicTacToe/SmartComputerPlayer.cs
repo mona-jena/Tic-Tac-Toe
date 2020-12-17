@@ -7,6 +7,7 @@ namespace TicTacToe
         private readonly char _humanPlayerSymbol;
         private readonly WinDecider _winDecider = new WinDecider();
         public char Symbol { get; }
+        //private int _turnCount;
 
         public SmartComputerPlayer(char symbol, char humanPlayerSymbol, Board realBoard)
         {
@@ -14,8 +15,8 @@ namespace TicTacToe
             _humanPlayerSymbol = humanPlayerSymbol;
             _board = realBoard;
         }
-
-
+        
+        
         private int CoordinatesUsed()
         {
             var coordinatesUsed = 0;
@@ -32,9 +33,10 @@ namespace TicTacToe
             return coordinatesUsed;
         }
         
+        
         public Coordinate TakeTurn()
         {
-            var middleCoord = new Coordinate {X = _board.Size/2, Y = _board.Size/2}; //how would it work for 4x4
+            var middleCoord = new Coordinate {X = _board.Size/2, Y = _board.Size/2}; 
             if ((CoordinatesUsed() == 0) || ((CoordinatesUsed() == 1) && (_board.GetSquare(middleCoord) == '.')))
             {
                 return middleCoord;
@@ -51,23 +53,42 @@ namespace TicTacToe
                         continue;
 
                     computerMove = possibleCoord;
-                    if (TryMove(possibleCoord)) 
-                        return possibleCoord;
+                    if (TryMove(possibleCoord))
+                    {
+                        return computerMove;
+                    }
+                    
                 }
             }
+
+            //_turnCount++;
             return computerMove;
         }
-        
+
 
         private bool TryMove(Coordinate possibleCoord)
         {
             //var jsonBoard = JsonSerializer.Serialize(_board, new JsonSerializerOptions() {IgnoreReadOnlyProperties = false});
             //var boardCopy = JsonSerializer.Deserialize<Board>(jsonBoard);
-            var boardCopy = DeepCopy();
-            boardCopy.UpdateSquare(possibleCoord, _humanPlayerSymbol);
-            return _winDecider.GetGameState(boardCopy) != GameState.InProgress;
+            var humanBoardCopy = DeepCopy();
+            humanBoardCopy.UpdateSquare(possibleCoord, _humanPlayerSymbol);
+            var computerBoardCopy = DeepCopy();
+            computerBoardCopy.UpdateSquare(possibleCoord, Symbol);
+
+            if (_winDecider.GetGameState(computerBoardCopy) != GameState.InProgress)
+            {
+                return true;
+            }
+
+            if (_winDecider.GetGameState(humanBoardCopy) != GameState.InProgress)
+            {
+                return true;
+            }
+
+            return false;
+
         }
-        
+
         private Board DeepCopy()
         {
             var boardCopy = new Board(_board.Size);

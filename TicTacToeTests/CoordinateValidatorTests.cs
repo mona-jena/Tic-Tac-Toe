@@ -8,7 +8,6 @@ namespace TicTacToeTests
         [Fact]
         public void TakeTurnShouldAskUserToReEnterIfGivenOutOfBoundsCoordinate()
         {
-            // do I need to use TestReaderWriter
             var board = new Board(3);
 
             var coordValidator = new CoordinateValidator();
@@ -21,7 +20,6 @@ namespace TicTacToeTests
         [Fact]
         public void TakeTurnShouldAskUserToReEnterCoordIfIndexTaken()
         {
-            // do I need to use TestReaderWriter
             var board = new Board(3);
             var existingCoord = new Coordinate {X = 1, Y = 2};
             board.UpdateSquare(existingCoord, 'X');

@@ -140,7 +140,7 @@ namespace TicTacToeTests
             var smartComputerPlayer = new SmartComputerPlayer('O', 'X', board);
 
             var smartPlayerTurn = smartComputerPlayer.TakeTurn();
-            var expectedCoord = new Coordinate {X = 2, Y = 1};
+            var expectedCoord = new Coordinate {X = 2, Y = 0};
 
             Assert.Equal(expectedCoord, smartPlayerTurn);
         }
@@ -151,8 +151,8 @@ namespace TicTacToeTests
             var board = new Board(3);
             board.UpdateSquare(new Coordinate(0, 0), 'X');
             board.UpdateSquare(new Coordinate(0, 1), 'X');
-            board.UpdateSquare(new Coordinate(2, 0), 'X');
-            board.UpdateSquare(new Coordinate(2, 2), 'X');
+            board.UpdateSquare(new Coordinate(2, 0), 'O');
+            board.UpdateSquare(new Coordinate(2, 2), 'O');
             var smartComputerPlayer = new SmartComputerPlayer('O', 'X', board);
 
             var smartPlayerTurn = smartComputerPlayer.TakeTurn();
@@ -195,5 +195,7 @@ namespace TicTacToeTests
 
             Assert.Equal(expectedCoord, smartPlayerTurn);
         }
+        
+        
     }
 }
