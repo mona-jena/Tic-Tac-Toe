@@ -10,22 +10,21 @@ namespace TicTacToe
         private readonly IPlayer _player2;
         private readonly IReaderWriter _readerWriter;
         private Coordinate _userCoord;
+        public IPlayer CurrentPlayer { get; private set; }
+        public GameState State { get; private set; }
 
-        public Game(IPlayer player1, IPlayer player2, int size, IReaderWriter readerWriter)
+        public Game(IPlayer player1, IPlayer player2, Board board, IReaderWriter readerWriter)
         {
-            if (size < 3) throw new ArgumentException("Size must be greater than 3");
-            _board = new Board(size);
-
+            _board = board;
+            if (_board.Size < 3) throw new ArgumentException("Size must be greater than 3");
+            
             _player1 = player1;
             _player2 = player2;
             CurrentPlayer = _player1;
             _readerWriter = readerWriter ?? throw new ArgumentException(nameof(readerWriter));
         }
 
-        public IPlayer CurrentPlayer { get; private set; }
-        public GameState State { get; private set; }
-
-
+        
         public void PLay()
         {
             while (State == GameState.InProgress) DoNextTurn();

@@ -19,7 +19,7 @@ namespace TicTacToeConsole
             }
 
             var player1 = new Player(charPlayer1Symbol, consoleReaderWriter);
-            Player player2 = new Player();  
+            Player player2;
 
             consoleReaderWriter.Write(
                 "\nWould you like to play with (1) another player or (2) computer \nChoose option: ");
@@ -33,7 +33,7 @@ namespace TicTacToeConsole
                     var player2Symbol = consoleReaderWriter.ReadLine().Trim();
                     charPlayer2Symbol = char.Parse(player2Symbol);
                 }
-
+                
                 player2 = new Player(charPlayer2Symbol, consoleReaderWriter);
                 
             }
@@ -50,7 +50,7 @@ namespace TicTacToeConsole
                         charPlayer2Symbol = char.Parse(player2Symbol);
                     }
 
-                    var compPlayer = new EasyComputerPlayer(new FakeNumberGenerator(), boardSize, charPlayer2Symbol);
+                    //var compPlayer = new EasyComputerPlayer(new FakeNumberGenerator(), boardSize, charPlayer2Symbol);
                 }
                 
             }
@@ -61,9 +61,9 @@ namespace TicTacToeConsole
             //KEEP ASKING UNTIL ANSWERED -- should i bother?
 
 
-            //var player2 = new Player(charPlayer2Symbol, consoleReaderWriter);
+            player2 = new Player(charPlayer2Symbol, consoleReaderWriter);
 
-            var game = new Game(player1, player2, boardSize, consoleReaderWriter);
+            var game = new Game(player1, player2, new Board(boardSize), consoleReaderWriter);
             game.PLay();
         }
     }

@@ -196,6 +196,5 @@ namespace TicTacToeTests
             Assert.Equal(expectedCoord, smartPlayerTurn);
         }
         
-        
     }
 }

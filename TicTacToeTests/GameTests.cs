@@ -1,3 +1,4 @@
+using Microsoft.VisualStudio.TestPlatform.PlatformAbstractions;
 using TicTacToe;
 using Xunit;
 
@@ -16,7 +17,7 @@ namespace TicTacToeTests
             _readerWriter2 = new TestReaderWriter();
             _player1 = new Player('X', _readerWriter1);
             var player2 = new Player('O', _readerWriter2);
-            _game = new Game(_player1, player2, 3, new TestReaderWriter());
+            _game = new Game(_player1, player2, new Board(3), new TestReaderWriter());
         }
 
         [Fact]
@@ -36,14 +37,13 @@ namespace TicTacToeTests
             _readerWriter2.AddMoves(new[] {"2,0", "2,2", "2,1"});
             var player1 = new Player('X', _readerWriter1);
             var player2 = new Player('O', _readerWriter2);
-            var game = new Game(player1, player2, 3, new TestReaderWriter());
+            var game = new Game(player1, player2, new Board(3), new TestReaderWriter());
             game.PLay();
 
             Assert.Equal(GameState.VerticalWin, game.State);
             Assert.Equal(player2, game.CurrentPlayer);
         }
 
-        // draw test
         [Fact]
         public void AcceptanceTestWhenThereIsDraw()
         {
@@ -51,7 +51,7 @@ namespace TicTacToeTests
             _readerWriter2.AddMoves(new[] {"0,0", "2,0", "1,2", "2,1"});
             var player1 = new Player('X', _readerWriter1);
             var player2 = new Player('O', _readerWriter2);
-            var game = new Game(player1, player2, 3, new TestReaderWriter());
+            var game = new Game(player1, player2, new Board(3), new TestReaderWriter());
             game.PLay();
 
             Assert.Equal(GameState.Tie, game.State);
@@ -65,7 +65,7 @@ namespace TicTacToeTests
             _readerWriter2.AddMoves(new[] {"0,0", "2,0", "1,2", "2,1"});
             var player1 = new Player('X', _readerWriter1);
             var player2 = new Player('O', _readerWriter2);
-            var game = new Game(player1, player2, 3, new TestReaderWriter());
+            var game = new Game(player1, player2, new Board(3), new TestReaderWriter());
 
             var expectedBoard =
                 ". . . \n" +
@@ -82,7 +82,7 @@ namespace TicTacToeTests
             _readerWriter2.AddMoves(new[] {"0,2", "1,2"});
             var player1 = new Player('X', _readerWriter1);
             var player2 = new Player('O', _readerWriter2);
-            var game = new Game(player1, player2, 3, new TestReaderWriter());
+            var game = new Game(player1, player2, new Board(3), new TestReaderWriter());
             game.PLay();
 
             var expectedBoard =
@@ -91,6 +91,38 @@ namespace TicTacToeTests
                 "O O . \n";
 
             Assert.Equal(game.PrintBoard(), expectedBoard);
+        }
+        
+        [Fact]
+        public void SmartComputerShouldWinAgainstEasyComputer()
+        {
+            var spyReaderWriter = new TestReaderWriter();
+            var board = new Board(3);
+            
+            var numberGenerator = new FakeNumberGenerator();
+            numberGenerator.AddNumbers(new[] {0, 0, 2, 2, 2, 0, 0, 2});
+            var aiPlayer = new EasyComputerPlayer(numberGenerator, 3, 'X');
+
+            var smartComputerGenerator = new SmartComputerPlayer('O', 'X', board);
+            var game = new Game(aiPlayer, smartComputerGenerator, board, spyReaderWriter);
+            game.PLay();
+            var expected = 
+                "X O X \n" +
+                ". O . \n" +
+                ". O X \n";
+            Assert.Equal(expected, game.PrintBoard());
+        }
+
+        [Fact]
+        public void SmartComputerVsSmartComputerShouLdReturnDraw()
+        {
+            var board = new Board(3);
+            var smartComputer1 = new SmartComputerPlayer('X', 'O', board);
+            var smartComputer2 = new SmartComputerPlayer('O', 'X', board);
+            var game = new Game(smartComputer1, smartComputer2, board, new TestReaderWriter());
+            game.PLay();
+
+            Assert.Equal(GameState.Tie, game.State);
         }
     }
 }

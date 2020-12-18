@@ -1,6 +1,6 @@
 namespace TicTacToe
 {
-    public class Draw : IWinCondition
+    internal class Draw : IWinCondition
     {
         public GameState HasWon(Board board)
         {

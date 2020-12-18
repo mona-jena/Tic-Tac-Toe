@@ -1,3 +1,5 @@
+using System;
+using System.Linq;
 using TicTacToe;
 
 namespace TicTacToeTests
@@ -6,9 +8,11 @@ namespace TicTacToeTests
     {
         private int _turnNumber;
         private string[] _userInputs;
+        public string _userOutputs { get; private set; } = string.Empty;
 
         public void Write(string s)
         {
+            _userOutputs += s;
         }
 
         public string ReadLine()

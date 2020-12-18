@@ -29,19 +29,12 @@ namespace TicTacToe
                         coordinatesUsed++;
                 }
             }
-
             return coordinatesUsed;
         }
         
         
         public Coordinate TakeTurn()
         {
-            var middleCoord = new Coordinate {X = _board.Size/2, Y = _board.Size/2}; 
-            if ((CoordinatesUsed() == 0) || ((CoordinatesUsed() == 1) && (_board.GetSquare(middleCoord) == '.')))
-            {
-                return middleCoord;
-            }
-            
             var computerMove = new Coordinate();
             for (var y = 0; y < _board.Size; y++)
             {
@@ -54,11 +47,18 @@ namespace TicTacToe
 
                     computerMove = possibleCoord;
                     if (TryMove(possibleCoord))
-                    {
                         return computerMove;
-                    }
-                    
                 }
+            }
+
+            var middleCord = new Coordinate {X = _board.Size / 2, Y = _board.Size / 2};
+            if (_coordinateValidator.IsValid(_board, middleCord))
+            {
+                return middleCord;
+            }
+            else
+            {
+                //check corners
             }
 
             //_turnCount++;
