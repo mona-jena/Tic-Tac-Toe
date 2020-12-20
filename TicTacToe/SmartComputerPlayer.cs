@@ -7,7 +7,6 @@ namespace TicTacToe
         private readonly char _humanPlayerSymbol;
         private readonly WinDecider _winDecider = new WinDecider();
         public char Symbol { get; }
-        //private int _turnCount;
 
         public SmartComputerPlayer(char symbol, char humanPlayerSymbol, Board realBoard)
         {
@@ -15,24 +14,8 @@ namespace TicTacToe
             _humanPlayerSymbol = humanPlayerSymbol;
             _board = realBoard;
         }
-        
-        
-        private int CoordinatesUsed()
-        {
-            var coordinatesUsed = 0;
-            for (var y = 0; y < _board.Size; y++)
-            {
-                for (var x = 0; x < _board.Size; x++)
-                {
-                    var coord = new Coordinate {X = x, Y = y};
-                    if (_board.GetSquare(coord) != '.')
-                        coordinatesUsed++;
-                }
-            }
-            return coordinatesUsed;
-        }
-        
-        
+
+
         public Coordinate TakeTurn()
         {
             var computerMove = new Coordinate();
@@ -42,7 +25,7 @@ namespace TicTacToe
                 {
                     var possibleCoord = new Coordinate {X = x, Y = y};
                     var valid = _coordinateValidator.IsValid(_board, possibleCoord);
-                    if (!valid) 
+                    if (!valid)
                         continue;
 
                     computerMove = possibleCoord;
@@ -52,16 +35,20 @@ namespace TicTacToe
             }
 
             var middleCord = new Coordinate {X = _board.Size / 2, Y = _board.Size / 2};
-            if (_coordinateValidator.IsValid(_board, middleCord))
-            {
-                return middleCord;
-            }
-            else
-            {
-                //check corners
-            }
+            if (_coordinateValidator.IsValid(_board, middleCord)) return middleCord;
 
-            //_turnCount++;
+            var topLeft = new Coordinate {X = 0, Y = 0};
+            if (_coordinateValidator.IsValid(_board, topLeft)) return topLeft;
+
+            var topRight = new Coordinate {X = _board.Size, Y = 0};
+            if (_coordinateValidator.IsValid(_board, topRight)) return topRight;
+
+            var bottomLeft = new Coordinate {X = 0, Y = _board.Size};
+            if (_coordinateValidator.IsValid(_board, bottomLeft)) return bottomLeft;
+
+            var bottomRight = new Coordinate {X = _board.Size, Y = _board.Size};
+            if (_coordinateValidator.IsValid(_board, bottomRight)) return bottomRight;
+            
             return computerMove;
         }
 

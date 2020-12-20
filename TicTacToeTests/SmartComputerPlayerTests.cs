@@ -110,7 +110,7 @@ namespace TicTacToeTests
             var smartComputerPlayer = new SmartComputerPlayer('O', 'X', board);
             
             var smartPlayerTurn = smartComputerPlayer.TakeTurn();
-            var expectedCord = new Coordinate() {X = 2, Y = 2};
+            var expectedCord = new Coordinate() {X = 0, Y = 0};
            
             Assert.Equal(expectedCord, smartPlayerTurn);
         }
@@ -127,8 +127,8 @@ namespace TicTacToeTests
            
             Assert.Equal(expectedCord, smartPlayerTurn);
         }
-        
-        
+
+
         [Fact]
         public void ComputerHorizontalWin()
         {
