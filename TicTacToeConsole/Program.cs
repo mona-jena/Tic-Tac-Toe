@@ -9,7 +9,8 @@ namespace TicTacToeConsole
             var consoleReaderWriter = new ConsoleReaderWriter();
             consoleReaderWriter.Write("What size board would you like to play with? ");
             var boardSize = int.Parse(consoleReaderWriter.ReadLine().Trim());
-
+            var board = new Board(boardSize);
+;
             var charPlayer1Symbol = '.';
             while (charPlayer1Symbol == '.')
             {
@@ -19,8 +20,10 @@ namespace TicTacToeConsole
             }
 
             var player1 = new Player(charPlayer1Symbol, consoleReaderWriter);
-            Player player2;
-
+            
+            Player player2 = new Player();
+            EasyComputerPlayer easyComputer = new EasyComputerPlayer();
+            SmartComputerPlayer smartComputer = new SmartComputerPlayer();
             consoleReaderWriter.Write(
                 "\nWould you like to play with (1) another player or (2) computer \nChoose option: ");
             var playerOption = consoleReaderWriter.ReadLine().Trim();
@@ -49,21 +52,24 @@ namespace TicTacToeConsole
                         var player2Symbol = consoleReaderWriter.ReadLine().Trim();
                         charPlayer2Symbol = char.Parse(player2Symbol);
                     }
-
-                    //var compPlayer = new EasyComputerPlayer(new FakeNumberGenerator(), boardSize, charPlayer2Symbol);
+                    
+                    //easyComputer = new EasyComputerPlayer(new FakeNumberGenerator(),boardSize, charPlayer2Symbol);
+                }
+                else if (modeLevel == "2")
+                {
+                    while ((charPlayer2Symbol == '.') | (charPlayer2Symbol == charPlayer1Symbol))
+                    {
+                        consoleReaderWriter.Write("Please choose a different symbol for the computer player: ");
+                        var player2Symbol = consoleReaderWriter.ReadLine().Trim();
+                        charPlayer2Symbol = char.Parse(player2Symbol);
+                    }
+                    
+                    smartComputer = new SmartComputerPlayer(charPlayer2Symbol,charPlayer1Symbol, board);
                 }
                 
             }
-            else
-            {
-                consoleReaderWriter.Write("Please choose a correct option: ");
-            }
-            //KEEP ASKING UNTIL ANSWERED -- should i bother?
 
-
-            player2 = new Player(charPlayer2Symbol, consoleReaderWriter);
-
-            var game = new Game(player1, player2, new Board(boardSize), consoleReaderWriter);
+            var game = new Game(player1, player2, board, consoleReaderWriter);
             game.PLay();
         }
     }

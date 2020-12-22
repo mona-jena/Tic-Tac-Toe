@@ -2,7 +2,7 @@ namespace TicTacToe
 {
     public class Board
     {
-        public readonly char[][] _board;
+        private readonly char[][] _board;
         public int Size { get; }
 
         public Board(int size)

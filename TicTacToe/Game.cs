@@ -27,7 +27,8 @@ namespace TicTacToe
         
         public void PLay()
         {
-            while (State == GameState.InProgress) DoNextTurn();
+            while (State == GameState.InProgress) 
+                DoNextTurn();
         }
 
 

@@ -63,17 +63,12 @@ namespace TicTacToe
             computerBoardCopy.UpdateSquare(possibleCoord, Symbol);
 
             if (_winDecider.GetGameState(computerBoardCopy) != GameState.InProgress)
-            {
                 return true;
-            }
 
             if (_winDecider.GetGameState(humanBoardCopy) != GameState.InProgress)
-            {
                 return true;
-            }
 
             return false;
-
         }
 
         private Board DeepCopy()
